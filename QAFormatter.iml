@@ -27,7 +27,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../QAFormatterJAVA/aspose-words-22.4.0-java/lib/aspose-words-22.4.0-jdk17.jar!/" />
+          <root url="jar://$MODULE_DIR$/aspose-words-22.4.0-jdk17.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

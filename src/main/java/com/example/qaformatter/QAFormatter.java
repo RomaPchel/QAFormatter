@@ -6,6 +6,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.*;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.aspose.words.*;
@@ -88,6 +89,14 @@ public class QAFormatter {
         Thread.sleep(2000);
 
     }
+    void changeStyle(Robot robot) throws AWTException, InterruptedException {
+        QAFormatter object = new QAFormatter();
+        object.deleteHardReturnsForReferences(robot);
+        object.setFontSize(robot);
+        object.setSpacing2(robot);
+        object.setFontStyle(robot);
+        
+    }
     void setFontStyle(Robot robot) throws InterruptedException {
         String[] fonts = {"Times New Roman", "Colibri", "Arial"};
         //Save code to the clipboard
@@ -122,7 +131,7 @@ public class QAFormatter {
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
-    int countReferences() throws  Exception{
+     int countReferences(String startPoint) throws  Exception{
         File file = new File("D:\\QAFormatter\\Output.txt");
         FileInputStream fileInputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -133,16 +142,16 @@ public class QAFormatter {
 
         while ( line != null) {
 
-            if(line.equals("References")){
+            if(line.equals(startPoint)){
                 countReferences=true;
             }
         if(countReferences){
             //System.out.println(line);
-            if(line.equals("\r\n")){
+            if(line.equals(" ")){
                 System.out.println("minus reference");
                 amountOfReferences--;
             }else{
-                System.out.println(line);
+                //System.out.println(line);
                 amountOfReferences++;
             }
         }
@@ -153,7 +162,7 @@ public class QAFormatter {
         return amountOfReferences-2;
 
     }
-    int countWords() throws Exception {
+     int countWords(String startPoint) throws Exception {
 
         HelloApplication appObj = new HelloApplication();
         System.out.println("D:\\QAFormatter\\" + appObj.returnPath());
@@ -171,26 +180,32 @@ public class QAFormatter {
         //!line.equals("References")
         while ( line != null) {
 
-            if(line.equals("Author Note")) {
+            if(line.equals(startPoint)) {
                 startCount = true;
             }else if(line.equals("References")){
                 startCount=false;
             }
             if(startCount){
-               // System.out.println(line);
 
-                String[] words = line.split("\\s+");
-                // System.out.println(Arrays.toString(words));
+               // System.out.println(line);
+//                if (line.equals("Evaluation Only. Created with Aspose.Words. Copyright 2003-2022 Aspose Pty Ltd.") || line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/\n") || line.equals("Author Note")){
+//                    line = bufferedReader.readLine();
+//                    System.out.println(line);
+//                }
+               //System.out.println(line);
+                String[] words = line.split(" ");
+                System.out.println(Arrays.toString(words));
                 wordCount += words.length;
 
 
             }
-            line = bufferedReader.readLine();
 
+            line = bufferedReader.readLine();
         }
+
         System.out.println("Total word count = "+ wordCount);
 
-        return wordCount-38;
+        return wordCount;
     }
 
 
