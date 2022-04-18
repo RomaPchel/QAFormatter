@@ -95,7 +95,7 @@ public class QAFormatter {
         object.setFontSize(robot);
         object.setSpacing2(robot);
         object.setFontStyle(robot);
-        
+
     }
     void setFontStyle(Robot robot) throws InterruptedException {
         String[] fonts = {"Times New Roman", "Colibri", "Arial"};

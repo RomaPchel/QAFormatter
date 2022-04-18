@@ -54,7 +54,7 @@ public class HelloApplication extends Application {
             if (returnPath() == null){
                 dragText.setText("Drag File");
             }else {
-
+                obj.changeStyle(obj.robot);
                 guideText.setText("""
                         Check Table:\s
                         1.topic of the paper
