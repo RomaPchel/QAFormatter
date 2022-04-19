@@ -4,6 +4,8 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Scanner;
 import com.aspose.words.*;
@@ -139,15 +141,25 @@ public class QAFormatter {
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
      int countReferences() throws  Exception{
-        File file = new File("D:\\QAFormatter\\Output.txt");
-        FileInputStream fileInputStream = new FileInputStream(file);
+        HelloApplication appObj = new HelloApplication();
+        File outFile = new File("D:\\QAFormatter\\output.txt");
+        File fileRef = new File("D:\\QAFormatter\\references.txt");
+        Document doc = new Document( appObj.returnPath());
+        doc.save("output.txt");
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileRef));
+
+        FileInputStream fileInputStream = new FileInputStream(outFile);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String line = bufferedReader.readLine();
+
         boolean countReferences = false;
-        int amountOfReferences = 0;
+
+
         String[] possibleTitle = {"References", "references", "Reference", "reference", "Reference list", "reference list", "Works Cited", "Works cited", "works cited", "work Cited"};
         while ( line != null) {
+            line = line.replace("\n", "#").replace("\r", "#");
             for (String s : possibleTitle) {
                 if (line.equals(s)) {
                     countReferences = true;
@@ -155,21 +167,25 @@ public class QAFormatter {
                 }
             }
         if(countReferences){
-            //System.out.println(line);
+
             if(line.equals("References") || line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/") || line.equals("Works Cited") || line.equals("Works cited") || line.equals("Work Cited") || line.equals("references")){
                 System.out.println("Not a Reference");
 
             }else{
+
                 System.out.println(line);
-                amountOfReferences++;
+                bufferedWriter.write(line);
             }
         }
             line = bufferedReader.readLine();
-
         }
-        System.out.println("Total number of references = "+ amountOfReferences);
-
-        return amountOfReferences;
+         byte[] byteArray = new byte[(int)fileRef.length()];
+         fileInputStream.read(byteArray);
+         String data = new String(byteArray);
+         String[] paragraphs = data.toString().split("\r\n\r\n");
+        System.out.println("Total number of references = "+ paragraphs.length);
+         bufferedWriter.close();
+        return paragraphs.length;
 
     }
      int countWords() throws Exception {
@@ -201,7 +217,7 @@ public class QAFormatter {
             if(startCount){
 
                 String[] words = line.split(" ");
-                System.out.println(Arrays.toString(words));
+               // System.out.println(Arrays.toString(words));
                 wordCount += words.length;
 
 
