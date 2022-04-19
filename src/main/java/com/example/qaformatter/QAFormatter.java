@@ -151,7 +151,7 @@ public class QAFormatter {
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String line = bufferedReader.readLine();
-
+        int amountOfReferences = 0;
         boolean countReferences = false;
 
 
@@ -166,24 +166,26 @@ public class QAFormatter {
             }
         if(countReferences){
 
-            if(line.equals("References") || line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/") || line.equals("Works Cited") || line.equals("Works cited") || line.equals("Work Cited") || line.equals("references")){
+            if(line.equals("References") || line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/") || line.equals("Works Cited") || line.equals("Works cited") || line.equals("Work Cited") || line.equals("references") || line.equals(" ") || line.equals("\r\n\r\n") || line.equals("\n\n") || line.equals("") ){
                 System.out.println("Not a Reference");
-
-            }else{
-
-                System.out.println(line);
-                bufferedWriter.write(line);
-            }
+                }else{
+                    amountOfReferences++;
+                    System.out.println(line);
+                    bufferedWriter.write(line);
+                }
         }
             line = bufferedReader.readLine();
         }
+
          byte[] byteArray = new byte[(int)fileRef.length()];
          fileInputStream.read(byteArray);
          String data = new String(byteArray);
-         String[] paragraphs = data.toString().split("\r\n\r\n");
-        System.out.println("Total number of references = "+ paragraphs.length);
+         String[] paragraphs = data.split("\r\n\r\n");
+         System.out.println(Arrays.toString(paragraphs));
+         System.out.println("Total number of references = "+ paragraphs.length);
+         System.out.println("Total number of references = "+ amountOfReferences);
          bufferedWriter.close();
-        return paragraphs.length;
+        return amountOfReferences;
 
     }
      int countWords() throws Exception {

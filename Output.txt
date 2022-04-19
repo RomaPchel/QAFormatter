@@ -1,29 +1,39 @@
-﻿												1
+﻿CONTRIBUTING TO COMMUNITY RECOVERY					 4
 Evaluation Only. Created with Aspose.Words. Copyright 2003-2022 Aspose Pty Ltd.
 
 
 
 
 
-Article Summary
 
-Name
-Institutional affiliation
-Course
-Professor
-Date
-Article Summary: “Do Rising Oil Prices Cause Recession?”
-The research analyzes a study by Pettinger (2022) on “Do rising oil prices cause recession.” According to Pettinger (2022), increasing oil prices leads to recession in two primary forms. High oil prices can reduce income, which leads to reduced spending, or higher oil prices can increase inflation, leading to an increase of interest rates by the central banks. High-interest rates slow down economic growth as people reduce borrowings and investments for fear of paying high interests and taxes. For instance, the recent increase in oil price due to the Russian conflict with Ukraine, economies fear high cost of living, which may slow down economic growth and development (Pettinger, 2022). Inflation caused by increased oil prices causes a relative increase in prices of produced goods due to high transportation costs. If oil prices rise, the economy will experience cost-push inflation affected by high prices of goods when consumers have lower income, cutting off some expenditure. The Russian-Ukraine war is a political uncertainty that will affect international trade globally. Therefore, business managers will respond with decision-making strategies to maximize profits and reduce losses.
-Business managers have a challenge in decision-making for production and pricing that will not affect their customer relationships and even reduce profits. War affects business planning, growth, and transportation of goods and services from producers to consumers. Managers will have to optimize the decision-making processes that will help them maximize profits to cater for losses caused. Business managers maximize profits when there is a more significant gap between total revenue and cost. For example, managers can maximize profits by increasing output, inventing new products, and reducing production costs. For smooth running and maintenance of organizational objectives and goals, business managers have to develop new strategies to survive during the inflation period. Cost-push inflation reduces the purchasing power of consumers in the market. An increase in production costs leads to a relative increase in the cost of goods and services. Thus, managers have to increase the prices of their products irrespective of the lower income of consumers to save their organizations from falling.
-The neoclassical theory can be applied in times of crisis that lead to cost-push inflation to pursue its goals of increasing value maximization. The neoclassical theory is established on imaginary and develops the principle of business profit maximization to maximize profits when the marginal cost is equal to the marginal revenue. Managers can use this theory when describing market structures, regulating business challenges, barriers to entry, developing strategic pricing, and improving economies of scale. Managers should be aware of reactions from other firms before deciding on maximizing profits. If other companies follow the decision of one firm to embrace profit maximization, then the demand will become elastic in the market. On the contrary, if other companies do not follow a firm's decision to maximize profits, the demand becomes elastic. Therefore, a manager should be strategic in decision-making to prevent the company from collapsing when faced with management problems.
-Conclusion
-Pettinger (2022) summarizes by illustrating that managers play a critical role in decision-making when crises occur that threaten the business performance and achievement of organizational goals and objectives. From the article, Pettinger illustrates the problem of increased oil prices on business management. Despite high economic struggles with lower incomes, business managers have to strategically develop ways of maintaining and ensuring the organizational goals are met through decision-making such as profit maximization, increased prizing, and production cost reduction.
+
+
+Contributing To Community Recovery	
+Author’s Name
+Institutional Affiliation
+
+
+
+
+
+
+Author Note
+Contributing To Community Recovery
+The lingering effects of natural disasters on emotional, physical and behavioral health can be enormous. According to Hettige et al. (2018), areas hit with natural disasters are characterized with increased rates of substance abuse as a coping method to the effects of the disaster. This paper focuses on community recovery efforts in a small Midwestern town that was struck by a tornado, resulting to loss of lives and destruction of properties. The management of substance abuse even after natural disasters such as tornados is important in promoting mental health and awareness.
+Avchen et al. (2019) postulated that addiction treatment centers assist addicted individuals to halt compulsive seeking and use of drugs. In the event of natural disasters, addiction treatment centers may also offer stress coping mechanisms to the victims. In response to the occurrence of a tornado at a Midwestern town, I may direct my staff to set up group counselling sessions. Group counselling sessions creates camaraderie that may result to a sense of belonging among the victims. In addition, I may also advise my staff and other helping professionals to offer individual counselling services to the victims of the disaster. Counselling services offer emotional support to the victims of the disaster thus acting as a coping mechanism. Furthermore, counselling offers guidance to individuals suffering from drug addiction. I might also direct my staff and other helping professionals to offer basic needs such as food, water and shelter to the victims of the Tornado. Provision of basic needs may reduce stress among the victims as their needs are being met. Besides, provision of accommodation may act as safe place to any individual being coerced into drug addiction.
+My main goal in the community recovery effort would be to reduce the overall risk of drug addiction in the community. This risk may be reduced by addressing the causes of drug use such as stress and the environment. In community recovery effort, offering emotional and mental support to the victims of the tornado would be my second goal. Sledge & Thomas (2019) postulated that stress is the leading cause of drug and substance in relations to natural disasters. As a result, the victims of the tornado will require counselling and other emotional coping mechanisms. To offer treatment of drug and substance abuse would be another goal of the community recovery center. Drug and substance abuse treatment would be done through medication or evaluation of mental health. 
+According to Kopak & Van Brown (2020), federal and local government regulations might impact an addiction counselor’s ability to contribute to this community recovery. Federal laws such as the Mental Health Parity and Addiction Equity Act (MPHAEA) create changes that result to regulation of mental health treatment. In addition, the federal laws work to protect the right of individuals with mental health disorders, including those arising from natural disasters (Sledge & Thomas, 2019). The federal and local government regulations might also address the several issues such as treatment facilities and standards for involuntary treatment (Kopak & Van Brown, 2020). These regulations provide of guideline of what is and is not permitted under law. The federal and local government regulations might further assist in making arrests of any individuals selling drugs. Making arrests will impact an addiction counselor’s ability to contribute to this community recovery as it will cut off the supply of drugs. Furthermore, federal and local government laws provide details of programs and processes which the government provides assistance. Conversely, the ability of community of the counselor to contribute to the community will be influenced as aspects such as funding may be required.
+
 
 References
-Pettinger, T. (2022, March 15). Do rising oil prices cause a recession? Economics Help. https://www.economicshelp.org/blog/167932/economics/do-rising-oil-prices-cause-recession/
+Avchen, R., Kosmos, C., & LeBlanc, T. (2019). Community Preparedness for Public Health Emergencies: Introduction and Contents of the Volume. American Journal Of Public Health, 109(S4), S253-S255. https://doi.org/10.2105/ajph.2019.305316  
+Hettige, S., Haigh, R., & Amaratunga, D. (2018). Community level indicators of long term disaster recovery. Procedia Engineering, 212, 1287-1294. https://doi.org/10.1016/j.proeng.2018.01.166 
+
+Kopak, A., & Van Brown, B. (2020). Substance Use in the Life Cycle of a Disaster: A Research Agenda and Methodological Considerations. American Behavioral Scientist, 64(8), 1095-1110. https://doi.org/10.1177/0002764220938109 
+
+Sledge, D., & Thomas, H. (2019). From Disaster Response to Community Recovery: Nongovernmental Entities, Government, and Public Health. American Journal Of Public Health, 109(3), 437-444. https://doi.org/10.2105/ajph.2018.304895 
 
 
 
-
-
+ 
 Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/

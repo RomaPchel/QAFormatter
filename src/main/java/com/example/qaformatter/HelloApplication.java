@@ -77,11 +77,11 @@ public class HelloApplication extends Application {
     @FXML
     private void initialize() {
         HelloApplication appObj = new HelloApplication();
-        if (appObj.returnSuccess()) {
-
+        if (returnPath() != null) {
             dragText.setText("Done!");
         }else{
             dragText.setText("Drag File and Press Format!");
+
         }
     }
     public void handleButton(ActionEvent event) throws Exception {
@@ -92,7 +92,6 @@ public class HelloApplication extends Application {
                 dragText.setText("Drag File");
             }else {
                // obj.changeStyle(obj.robot);
-                dragText.setText("Pressed APA");
                 if (obj.countWords() <=0 ){
                     wordCountText.setText("Wrong Format or Last line of Title Page");
                 }else if (obj.countReferences() <0){
@@ -100,6 +99,7 @@ public class HelloApplication extends Application {
                 }
                 else
                 {
+                    dragText.setText("Formatted");
                     wordCountText.setText("Word count: " + obj.countWords() + "+- some words");
 
                     ReferenceCountText.setText("Reference count: " + obj.countReferences());
@@ -109,10 +109,16 @@ public class HelloApplication extends Application {
                 }
             }
         }
+
         if ((event.getSource() == FORMAT)) {
-           obj.changeStyle(obj.robot);
-           obj.saveFile(obj.robot);
-            dragText.setText("Formatted");
+            if (returnPath() == null){
+                dragText.setText("Drag File!");
+            }else{
+                obj.changeStyle(obj.robot);
+                obj.saveFile(obj.robot);
+                dragText.setText("Counted");
+            }
+
         }
     }
     @Override
