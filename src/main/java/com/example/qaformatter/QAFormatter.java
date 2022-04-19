@@ -99,8 +99,6 @@ public class QAFormatter {
     }
     void changeStyle(Robot robot) throws AWTException, InterruptedException {
         QAFormatter object = new QAFormatter();
-        object.deleteHardReturnsForReferences(robot);
-
         object.setSpacing2(robot);
         object.setFontStyle(robot);
         object.setFontSize(robot);
