@@ -7,19 +7,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
+
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
-    public static void main(String[] args) {
-        Application.launch(args);
-    }
+
     static String filePathGlobal;
     static boolean successGlobal;
     @FXML
@@ -27,15 +30,49 @@ public class HelloApplication extends Application {
     @FXML
      private Label ReferenceCountText;
     @FXML
-    private Button APA;
+    private Button COUNT;
     @FXML
-    private Button HARVARD;
-    @FXML
-    private Button MLA;
+    private Button FORMAT;
     @FXML
     private Label dragText;
     @FXML
     private Label guideText;
+    @FXML
+    private Label guideText2;
+    @FXML
+    private Label guideText3;
+    @FXML
+    private Label guideText4;
+    @FXML
+    private Label guideText5;
+    @FXML
+    private Label guideText6;
+    @FXML
+    private Label guideText7;
+    @FXML
+    private Label guideText8;
+    @FXML
+    private CheckBox checkBox;
+    @FXML
+    private CheckBox checkBox2;
+    @FXML
+    private CheckBox checkBox3;
+    @FXML
+    private CheckBox checkBox4;
+    @FXML
+    private CheckBox checkBox5;
+    @FXML
+    private CheckBox checkBox6;
+    @FXML
+    private CheckBox checkBox7;
+    @FXML
+    private CheckBox checkBox8;
+
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+
 
     @FXML
     private void initialize() {
@@ -49,88 +86,33 @@ public class HelloApplication extends Application {
     }
     public void handleButton(ActionEvent event) throws Exception {
         QAFormatter obj = new QAFormatter();
-        if ((event.getSource() == APA) ) {
+        if ((event.getSource() == COUNT) ) {
 
             if (returnPath() == null){
                 dragText.setText("Drag File");
             }else {
-                obj.changeStyle(obj.robot);
-                guideText.setText("""
-                        Check Table:\s
-                        1.topic of the paper
-                        2.originality
-                        3.word count
-                        4.instructions
-                        5.features
-                        6.proofread/format
-                        7.rate
-                        8.move to the next folder
-                        """);
+               // obj.changeStyle(obj.robot);
                 dragText.setText("Pressed APA");
-                if (obj.countWords("Author Note") <=0 || obj.countReferences("References") <0){
-                    wordCountText.setText("Wrong Format");
-                    ReferenceCountText.setText("Wrong Format");
-                }else {
-                    wordCountText.setText("Word count: " + obj.countWords("Author Note") + "+- some words");
-                    ReferenceCountText.setText("Reference count: " + obj.countReferences("References"));
+                if (obj.countWords() <=0 ){
+                    wordCountText.setText("Wrong Format or Last line of Title Page");
+                }else if (obj.countReferences() <0){
+                    ReferenceCountText.setText("Wrong Format of Heading for References");
+                }
+                else
+                {
+                    wordCountText.setText("Word count: " + obj.countWords() + "+- some words");
+
+                    ReferenceCountText.setText("Reference count: " + obj.countReferences());
+
                     System.out.println("APA");
                     System.out.println(returnSuccess());
                 }
             }
         }
-        if ((event.getSource() == HARVARD)) {
-            if (returnPath() == null){
-                dragText.setText("Drag File");
-            }else {
-            guideText.setText("""
-                    Check Table:\s
-                    1.topic of the paper
-                    2.originality
-                    3.word count
-                    4.instructions
-                    5.features
-                    6.proofread/format
-                    7.rate
-                    8.move to the next folder
-                    """);
-            dragText.setText("Pressed HARVARD");
-                if (obj.countWords("Date") <=0 || obj.countReferences("References") <0){
-                    wordCountText.setText("Wrong Format");
-                    ReferenceCountText.setText("Wrong Format");
-                }else {
-                    wordCountText.setText("Word count: " + obj.countWords("Date") + "+- some words");
-                    ReferenceCountText.setText("Reference count: " + obj.countReferences("References"));
-                    System.out.println("HARVARD");
-                    System.out.println(returnSuccess());
-                }
-        }}
-        if ((event.getSource() == MLA)) {
-            if (returnPath() == null){
-                dragText.setText("Drag File");
-            }else {
-                guideText.setText("""
-                        Check Table:\s
-                        1.topic of the paper
-                        2.originality
-                        3.word count
-                        4.instructions
-                        5.features
-                        6.proofread/format
-                        7.rate
-                        8.move to the next folder
-                        """);
-                dragText.setText("Pressed MLA");
-                if (obj.countWords("Date") <=0 || obj.countReferences("Works Cited") <0){
-                    wordCountText.setText("Wrong Format");
-                    ReferenceCountText.setText("Wrong Format");
-                }else{
-                    wordCountText.setText("Word count: " + obj.countWords("Date") + "+- some words");
-                    ReferenceCountText.setText("Reference count: " + obj.countReferences("Works Cited"));
-                    System.out.println("MLA");
-                    System.out.println(returnSuccess());
-                }
-
-            }
+        if ((event.getSource() == FORMAT)) {
+           obj.changeStyle(obj.robot);
+           obj.saveFile(obj.robot);
+            dragText.setText("Formatted");
         }
     }
     @Override
@@ -140,19 +122,14 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 450, 320);
         BorderPane pane = new BorderPane();
 
+
         wordCountText = new Label();
         ReferenceCountText = new Label();
         guideText = new Label();
 
-        APA = new Button();
+        COUNT = new Button();
 
-        HARVARD = new Button();
-
-        MLA = new Button();
-
-
-
-
+        FORMAT = new Button();
         scene.setOnDragOver(new EventHandler<DragEvent>() {
             @Override
             public void handle(DragEvent event) {
@@ -175,8 +152,8 @@ public class HelloApplication extends Application {
                 if (db.hasFiles()) {
                     setSuccess(true);
                     for (File file:db.getFiles()) {
-                        setFilePathGlobal(file.getName());
-                        System.out.println(file.getName());
+                        setFilePathGlobal(file.getPath());
+                        System.out.println(file.getPath());
 
                     }
                 }
@@ -185,10 +162,9 @@ public class HelloApplication extends Application {
             }
         });
 
-        pane.setLeft(APA);
-        pane.setRight(HARVARD);
-        stage.setTitle("QAFormatter");
 
+        stage.setTitle("QAFormatter");
+        stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
         stage.setX(400);
         stage.setY(200);
         stage.setHeight(500);
