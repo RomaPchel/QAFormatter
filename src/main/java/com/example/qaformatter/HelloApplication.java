@@ -1,5 +1,4 @@
 package com.example.qaformatter;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,11 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.BorderPane;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.File;
+import java.io.IOException;
 
 public class HelloApplication extends Application {
 
@@ -27,39 +25,37 @@ public class HelloApplication extends Application {
     @FXML
      private Label ReferenceCountText;
     @FXML
+    private Label hoverText;
+    @FXML
     private Button COUNT;
     @FXML
     private Button FORMAT;
     @FXML
     private Label dragText;
     @FXML
-    private Label fileName;
-
-    public String getFileNameString() {
-        return fileNameString;
-    }
-
-    public void setFileNameString(String fileNameString) {
-        this.fileNameString = fileNameString;
-    }
-
-    private String fileNameString;
+    public TextField guideText;
     @FXML
-    private TextField guideText;
+    public TextField guideText2;
     @FXML
-    private TextField guideText2;
+    public TextField guideText3;
     @FXML
-    private TextField guideText3;
+    public TextField guideText4;
     @FXML
-    private TextField guideText4;
+    public TextField guideText5;
     @FXML
-    private TextField guideText5;
+    public TextField guideText6;
     @FXML
-    private TextField guideText6;
+    public TextField guideText7;
     @FXML
-    private TextField guideText7;
+    public TextField guideText8;
     @FXML
-    private TextField guideText8;
+    public TextField guideText9;
+    @FXML
+    public TextField guideText10;
+    @FXML
+    public TextField guideText11;
+    @FXML
+    public TextField guideText12;
     @FXML
     private CheckBox checkBox;
     @FXML
@@ -77,22 +73,21 @@ public class HelloApplication extends Application {
     @FXML
     private CheckBox checkBox8;
     @FXML
-    private Button checkBoxButton;
+    private CheckBox checkBox9;
     @FXML
-    private Button checkBoxButton2;
+    private CheckBox checkBox10;
     @FXML
-    private Button checkBoxButton3;
+    private CheckBox checkBox11;
     @FXML
-    private Button checkBoxButton4;
+    private CheckBox checkBox12;
     @FXML
-    private Button checkBoxButton5;
+    private Button openLanguageSite;
     @FXML
-    private Button checkBoxButton6;
+    private Button openReferencesSite;
     @FXML
-    private Button checkBoxButton7;
+    private Button headingButton;
     @FXML
-    private Button checkBoxButton8;
-
+    private Button titlesButton;
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -102,31 +97,48 @@ public class HelloApplication extends Application {
     @FXML
     private void initialize() {
 
-        HelloApplication appObj = new HelloApplication();
         if (returnPath() != null) {
             dragText.setText("Done!");
         }else{
             dragText.setText("Drag File and Press Format!");
 
         }
+        hoverText.setText("Hover Over Text to See Hint!");
+        guideText.textProperty().set("Instructions");
+        guideText2.textProperty().set("Originality");
+        guideText3.textProperty().set("Count References/Citations");
+        guideText4.textProperty().set("Words Count");
+        guideText5.textProperty().set("Font, Size and Spacing");
+        guideText6.textProperty().set("Header");
+        guideText7.textProperty().set("Title Page");
+        guideText8.textProperty().set("Headings");
+        guideText9.textProperty().set("Left-centered Text");
+        guideText10.textProperty().set("Mistakes/Typos in Text");
+        guideText11.textProperty().set("Language");
+        guideText12.textProperty().set("References/In-text Citations");
+
         guideText.setTooltip(new Tooltip("check if the paper's on topic"));
         guideText2.setTooltip(new Tooltip("if there's plag - all your efforts will\n" +
                 "be wasted > do not skip this step"));
-        guideText3.setTooltip(new Tooltip("mind +/-10% leeway rule; about\n" +
-                "possibly copied text from C's files;\n" +
-                "WC distribution; components not\n" +
-                "included in WC"));
-        guideText4.setTooltip(new Tooltip("use ctrl+F to scan instructions toget\n" +
-                "the gist of the order; start with\n" +
-                "rubric/handbook or files named\n" +
-                "'instructions' and then move to other\n" +
-                "attachments for not to get lost in\n" +
-                "those"));
-        guideText5.setTooltip(new Tooltip("double-check Features field before\n" +
-                "moving to Done"));
-//        guideText6.setTooltip(new Tooltip("aboba"));
-//        guideText7.setTooltip(new Tooltip("aboba"));
-//        guideText8.setTooltip(new Tooltip("aboba"));
+        guideText3.setTooltip(new Tooltip("title page and references not included"));
+        guideText4.setTooltip(new Tooltip("mind +/-10% leeway rule; "));
+        guideText5.setTooltip(new Tooltip("Most of the time Times New Roman 12"));
+        guideText6.setTooltip(new Tooltip("APA:     |\"TOPIC        PAGE\"|\n" +
+                                             "HARV:  |\"          Topic PAGE\"|\n" +
+                                             "MLA:     |\"          Surname PAGE\"|"));
+        guideText7.setTooltip(new Tooltip("APA:\n" +
+                "       (bold)Topic\n" +
+                "       (blank)\n" +
+                "       Name\n" +
+                "       University\n" +
+                "       (blankS)\n" +
+                "       (bold)Author Note\n" +
+                "HARV:\n        TOPIC\n         Name\n        (blank)\n         Course\n         Prof Name\n         Institution\n         Location\n         Date\n" +
+                "MLA:\nName\nProf Name\nCourse\nDate"));
+      //  guideText8.setTooltip(new Tooltip(""));
+        guideText9.setTooltip(new Tooltip("Ctrl + L"));
+        guideText11.setTooltip(new Tooltip("US: suffix -> iz and yz \n UK:  suffix -> is and ys\n Press Hint for Help"));
+        guideText12.setTooltip(new Tooltip("Press Hint for Help"));
     }
     public void handleButton(ActionEvent event) throws Exception {
         QAFormatter obj = new QAFormatter();
@@ -169,13 +181,51 @@ public class HelloApplication extends Application {
 
         }
     }
+    public void handleLanguageSite(ActionEvent event){
+        if (event.getSource() == openLanguageSite){
+            Runtime rt = Runtime.getRuntime();
+            String url = "http://www.tysto.com/uk-us-spelling-list.html";
+            try {
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }else if(event.getSource() == openReferencesSite){
+            Runtime rt = Runtime.getRuntime();
+            String url = "https://writerscrmassetsbucket.s3.amazonaws.com/uploads/library_asset/2949542/All_Formats_Table_with_APA_7th_edition_upd.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQVZIBLWVMDVW2YKQ%2F20220415%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220415T100359Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=66c6ee34e0385e06ce750fea014106b21cb2a7cde42cd8c7c30d68d6973bbea1";
+            try {
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }else if(event.getSource() == headingButton){
+            Runtime rt = Runtime.getRuntime();
+            String url = "https://docs.google.com/document/d/1gUUYJ5wfVUMH3e7INAzM9iBqYfMS25gMaM3YjLcOplc/edit#";
+            try {
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }else{
+            Runtime rt = Runtime.getRuntime();
+            String url = "https://docs.google.com/document/d/1bgKqIQth28zPbPuBlXTxQYySwRaLgj7gIBLPoacErnA/edit#";
+            try {
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
     @Override
     public void start(Stage stage) throws Exception {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 450, 320);
-        BorderPane pane = new BorderPane();
 
+        Scene scene = new Scene(fxmlLoader.load(), 450, 320);
+        fxmlLoader.setController(this);
+
+
+        guideText = new TextField("NONE");
 
         wordCountText = new Label();
         ReferenceCountText = new Label();
@@ -222,7 +272,6 @@ public class HelloApplication extends Application {
 
         });
 
-
         stage.setTitle("QAFormatter");
         stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
         stage.setX(400);
@@ -233,6 +282,7 @@ public class HelloApplication extends Application {
         stage.show();
 
     }
+
 
     private String toString(String name) {
         return "" + name;

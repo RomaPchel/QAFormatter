@@ -155,7 +155,7 @@ public class QAFormatter {
         boolean countReferences = false;
 
 
-        String[] possibleTitle = {"References", "references", "Reference", "reference", "Reference list","Reference`s list", "Reference's list","References list", "reference list", "Works Cited", "Works cited", "works cited", "work Cited"};
+        String[] possibleTitle = {"References", "List of references", "List of References", "List Of References","Bibliography", "Bibliography List", "bibliography list", "bibliography","references", "Reference", "reference", "Reference list","Reference`s list", "Reference's list","References list", "reference list", "Works Cited", "Works cited", "works cited", "work Cited"};
         while ( line != null) {
             line = line.replace("\n", "#").replace("\r", "#");
             for (String s : possibleTitle) {
@@ -166,7 +166,7 @@ public class QAFormatter {
             }
         if(countReferences){
 
-            if(line.equals("References") || line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/") || line.equals("Works Cited") || line.equals("Works cited") || line.equals("Work Cited") || line.equals("references") || line.equals(" ") || line.equals("\r\n\r\n") || line.equals("\n\n") || line.equals("") ){
+            if(line.equals("References") || line.equals("List of references")|| line.equals("List of References")|| line.equals("List Of References")|| line.equals("Bibliography List") || line.equals("bibliography list")|| line.equals("bibliography")|| line.equals("Bibliography") || line.equals("reference List")|| line.equals("reference list")|| line.equals("Reference List") || line.equals("reference") || line.equals("Reference")|| line.equals("Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/") || line.equals("Works Cited")|| line.equals("work cited") || line.equals("works cited")|| line.equals("Works cited") || line.equals("Work Cited") || line.equals("references") || line.equals(" ") || line.equals("\r\n\r\n") || line.equals("\n\n") || line.equals("") ){
                 System.out.println("Not a Reference");
                 }else{
                     amountOfReferences++;
