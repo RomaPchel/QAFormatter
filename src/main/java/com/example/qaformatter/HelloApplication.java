@@ -200,7 +200,7 @@ public class HelloApplication extends Application {
             }
         }else if(event.getSource() == headingButton){
             Runtime rt = Runtime.getRuntime();
-            String url = "https://docs.google.com/document/d/1gUUYJ5wfVUMH3e7INAzM9iBqYfMS25gMaM3YjLcOplc/edit#";
+            String url = "https://docs.google.com/document/d/1gUUYJ5wfVUMH3e7INAzM9iBqYfMS25gMaM3YjLcOplc/edit?usp=sharing";
             try {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
             } catch (IOException ioException) {
@@ -208,7 +208,7 @@ public class HelloApplication extends Application {
             }
         }else{
             Runtime rt = Runtime.getRuntime();
-            String url = "https://docs.google.com/document/d/1bgKqIQth28zPbPuBlXTxQYySwRaLgj7gIBLPoacErnA/edit#";
+            String url = "https://docs.google.com/document/d/1bgKqIQth28zPbPuBlXTxQYySwRaLgj7gIBLPoacErnA/edit?usp=sharing";
             try {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
             } catch (IOException ioException) {
