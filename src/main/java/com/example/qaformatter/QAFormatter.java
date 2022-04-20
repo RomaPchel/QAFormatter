@@ -140,11 +140,11 @@ public class QAFormatter {
     }
      int countReferences() throws  Exception{
         HelloApplication appObj = new HelloApplication();
-        File outFile = new File("D:\\QAFormatter\\output.txt");
-        File fileRef = new File("D:\\QAFormatter\\references.txt");
+        File outFile = new File(System.getProperty("user.dir")+ "\\output.txt");
+        File fileRef = new File(System.getProperty("user.dir")+ "\\references.txt");
         Document doc = new Document( appObj.returnPath());
         doc.save("output.txt");
-
+         System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileRef));
 
         FileInputStream fileInputStream = new FileInputStream(outFile);
@@ -155,7 +155,7 @@ public class QAFormatter {
         boolean countReferences = false;
 
 
-        String[] possibleTitle = {"References", "references", "Reference", "reference", "Reference list", "reference list", "Works Cited", "Works cited", "works cited", "work Cited"};
+        String[] possibleTitle = {"References", "references", "Reference", "reference", "Reference list","Reference`s list", "Reference's list","References list", "reference list", "Works Cited", "Works cited", "works cited", "work Cited"};
         while ( line != null) {
             line = line.replace("\n", "#").replace("\r", "#");
             for (String s : possibleTitle) {
@@ -170,7 +170,7 @@ public class QAFormatter {
                 System.out.println("Not a Reference");
                 }else{
                     amountOfReferences++;
-                    System.out.println(line);
+                    //System.out.println(line);
                     bufferedWriter.write(line);
                 }
         }

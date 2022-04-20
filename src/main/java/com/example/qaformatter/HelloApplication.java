@@ -6,10 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -19,12 +16,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.Objects;
 
 public class HelloApplication extends Application {
 
     static String filePathGlobal;
     static boolean successGlobal;
+
     @FXML
      private Label wordCountText;
     @FXML
@@ -36,21 +33,33 @@ public class HelloApplication extends Application {
     @FXML
     private Label dragText;
     @FXML
-    private Label guideText;
+    private Label fileName;
+
+    public String getFileNameString() {
+        return fileNameString;
+    }
+
+    public void setFileNameString(String fileNameString) {
+        this.fileNameString = fileNameString;
+    }
+
+    private String fileNameString;
     @FXML
-    private Label guideText2;
+    private TextField guideText;
     @FXML
-    private Label guideText3;
+    private TextField guideText2;
     @FXML
-    private Label guideText4;
+    private TextField guideText3;
     @FXML
-    private Label guideText5;
+    private TextField guideText4;
     @FXML
-    private Label guideText6;
+    private TextField guideText5;
     @FXML
-    private Label guideText7;
+    private TextField guideText6;
     @FXML
-    private Label guideText8;
+    private TextField guideText7;
+    @FXML
+    private TextField guideText8;
     @FXML
     private CheckBox checkBox;
     @FXML
@@ -84,6 +93,7 @@ public class HelloApplication extends Application {
     @FXML
     private Button checkBoxButton8;
 
+
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -91,6 +101,7 @@ public class HelloApplication extends Application {
 
     @FXML
     private void initialize() {
+
         HelloApplication appObj = new HelloApplication();
         if (returnPath() != null) {
             dragText.setText("Done!");
@@ -98,6 +109,24 @@ public class HelloApplication extends Application {
             dragText.setText("Drag File and Press Format!");
 
         }
+        guideText.setTooltip(new Tooltip("check if the paper's on topic"));
+        guideText2.setTooltip(new Tooltip("if there's plag - all your efforts will\n" +
+                "be wasted > do not skip this step"));
+        guideText3.setTooltip(new Tooltip("mind +/-10% leeway rule; about\n" +
+                "possibly copied text from C's files;\n" +
+                "WC distribution; components not\n" +
+                "included in WC"));
+        guideText4.setTooltip(new Tooltip("use ctrl+F to scan instructions toget\n" +
+                "the gist of the order; start with\n" +
+                "rubric/handbook or files named\n" +
+                "'instructions' and then move to other\n" +
+                "attachments for not to get lost in\n" +
+                "those"));
+        guideText5.setTooltip(new Tooltip("double-check Features field before\n" +
+                "moving to Done"));
+//        guideText6.setTooltip(new Tooltip("aboba"));
+//        guideText7.setTooltip(new Tooltip("aboba"));
+//        guideText8.setTooltip(new Tooltip("aboba"));
     }
     public void handleButton(ActionEvent event) throws Exception {
         QAFormatter obj = new QAFormatter();
@@ -108,9 +137,13 @@ public class HelloApplication extends Application {
             }else {
                // obj.changeStyle(obj.robot);
                 if (obj.countWords() <=0 ){
+
                     wordCountText.setText("Wrong Format or Last line of Title Page");
+
                 }else if (obj.countReferences() <0){
+
                     ReferenceCountText.setText("Wrong Format of Heading for References");
+
                 }
                 else
                 {
@@ -146,7 +179,6 @@ public class HelloApplication extends Application {
 
         wordCountText = new Label();
         ReferenceCountText = new Label();
-        guideText = new Label();
 
         COUNT = new Button();
 
@@ -156,6 +188,7 @@ public class HelloApplication extends Application {
             public void handle(DragEvent event) {
                 Dragboard db = event.getDragboard();
                 if (db.hasFiles()) {
+
                     event.acceptTransferModes(TransferMode.COPY);
                 } else {
                     event.consume();
@@ -171,16 +204,22 @@ public class HelloApplication extends Application {
                 Dragboard db = event.getDragboard();
                 setSuccess(false);
                 if (db.hasFiles()) {
+
                     setSuccess(true);
                     for (File file:db.getFiles()) {
                         setFilePathGlobal(file.getPath());
                         System.out.println(file.getPath());
+                        System.out.println(file.getName());
+
 
                     }
                 }
                 event.setDropCompleted(successGlobal);
+
                 event.consume();
+
             }
+
         });
 
 
@@ -194,6 +233,11 @@ public class HelloApplication extends Application {
         stage.show();
 
     }
+
+    private String toString(String name) {
+        return "" + name;
+    }
+
     void setFilePathGlobal(String path){
         filePathGlobal = path;
     }
@@ -202,6 +246,7 @@ public class HelloApplication extends Application {
     }
     void setSuccess(boolean status){
         successGlobal = status;
+
     }
     public boolean returnSuccess(){
         return successGlobal;
