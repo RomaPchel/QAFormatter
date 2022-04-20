@@ -71,7 +71,7 @@ public class QAFormatter {
     void setSpacing2(Robot robot) throws InterruptedException {
         //Self-explanatory
         robot.keyPress(KeyEvent.VK_CONTROL);
-        Thread.sleep(200);
+        Thread.sleep(2000);
         robot.keyPress(KeyEvent.VK_A);
         robot.keyRelease(KeyEvent.VK_CONTROL);
         robot.keyRelease(KeyEvent.VK_A);

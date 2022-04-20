@@ -67,7 +67,22 @@ public class HelloApplication extends Application {
     private CheckBox checkBox7;
     @FXML
     private CheckBox checkBox8;
-
+    @FXML
+    private Button checkBoxButton;
+    @FXML
+    private Button checkBoxButton2;
+    @FXML
+    private Button checkBoxButton3;
+    @FXML
+    private Button checkBoxButton4;
+    @FXML
+    private Button checkBoxButton5;
+    @FXML
+    private Button checkBoxButton6;
+    @FXML
+    private Button checkBoxButton7;
+    @FXML
+    private Button checkBoxButton8;
 
     public static void main(String[] args) {
         Application.launch(args);

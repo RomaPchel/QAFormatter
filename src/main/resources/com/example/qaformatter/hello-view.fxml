@@ -17,14 +17,14 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <GridPane style="-fx-alignment: CENTER">
-        <CheckBox fx:id="checkBox" GridPane.columnIndex="0" GridPane.rowIndex="0"  /><Label fx:id="guideText" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="0" text="1.topic of the paper" />
-        <CheckBox fx:id="checkBox2" GridPane.columnIndex="0" GridPane.rowIndex="1" /><Label fx:id="guideText2" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="1" text="2.originality"/>
-        <CheckBox fx:id="checkBox3" GridPane.columnIndex="0" GridPane.rowIndex="2" /><Label fx:id="guideText3" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="2"  text="3.word count"/>
-        <CheckBox fx:id="checkBox4" GridPane.columnIndex="0" GridPane.rowIndex="3" /><Label fx:id="guideText4" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="3" text="4.instructions"/>
-        <CheckBox fx:id="checkBox5" GridPane.columnIndex="0" GridPane.rowIndex="4" /><Label fx:id="guideText5" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="4" text="5.features"/>
-        <CheckBox fx:id="checkBox6" GridPane.columnIndex="0" GridPane.rowIndex="5" /><Label fx:id="guideText6" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="5" text="6.proofread/format"/>
-        <CheckBox fx:id="checkBox7" GridPane.columnIndex="0" GridPane.rowIndex="6" /><Label fx:id="guideText7" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="6" text="7.rate" />
-        <CheckBox fx:id="checkBox8" GridPane.columnIndex="0" GridPane.rowIndex="7" /><Label fx:id="guideText8" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="7" text="8.move to the next folder"/>
+        <CheckBox fx:id="checkBox" GridPane.columnIndex="0" GridPane.rowIndex="0"  /><Label fx:id="guideText" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="0" text="1.topic of the paper" /> <Button fx:id="checkBoxButton" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <CheckBox fx:id="checkBox2" GridPane.columnIndex="0" GridPane.rowIndex="1" /><Label fx:id="guideText2" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="1" text="2.originality"/> <Button fx:id="checkBoxButton2" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <CheckBox fx:id="checkBox3" GridPane.columnIndex="0" GridPane.rowIndex="2" /><Label fx:id="guideText3" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="2"  text="3.word count"/> <Button fx:id="checkBoxButton3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <CheckBox fx:id="checkBox4" GridPane.columnIndex="0" GridPane.rowIndex="3" /><Label fx:id="guideText4" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="3" text="4.instructions"/> <Button fx:id="checkBoxButton4" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <CheckBox fx:id="checkBox5" GridPane.columnIndex="0" GridPane.rowIndex="4" /><Label fx:id="guideText5" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="4" text="5.features"/> <Button fx:id="checkBoxButton5" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <CheckBox fx:id="checkBox6" GridPane.columnIndex="0" GridPane.rowIndex="5" /><Label fx:id="guideText6" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="5" text="6.proofread/format"/> <Button fx:id="checkBoxButton6" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+        <CheckBox fx:id="checkBox7" GridPane.columnIndex="0" GridPane.rowIndex="6" /><Label fx:id="guideText7" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="6" text="7.rate" /> <Button fx:id="checkBoxButton7" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <CheckBox fx:id="checkBox8" GridPane.columnIndex="0" GridPane.rowIndex="7" /><Label fx:id="guideText8" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="7" text="8.move to the next folder"/> <Button fx:id="checkBoxButton8" GridPane.columnIndex="2" GridPane.rowIndex="7" />
     </GridPane>
     <Label fx:id="dragText" style="-fx-font: 18 arial;"/>
 
