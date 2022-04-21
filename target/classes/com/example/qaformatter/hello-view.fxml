@@ -26,8 +26,8 @@
     <Label fx:id="dragText" style="-fx-font: 18 arial;"/>
     <Label fx:id="ReferenceCountText" />
     <Label fx:id="wordCountText" />
-    <Button fx:id="FORMAT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #7618A0FF; -fx-row-valignment: CENTER  " text="FORMAT!"/>
-    <Button fx:id="COUNT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #7618A0FF; -fx-row-valignment: CENTER  " text="COUNT!"/>
+    <Button fx:id="FORMAT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #7618A0FF; -fx-row-valignment: CENTER  " text="FORMAT"/>
+    <Button fx:id="COUNT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER  " text="COUNT"/>
 
 
 

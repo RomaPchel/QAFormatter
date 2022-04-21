@@ -10,8 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -117,28 +118,61 @@ public class HelloApplication extends Application {
         guideText11.textProperty().set("Language");
         guideText12.textProperty().set("References/In-text Citations");
 
-        guideText.setTooltip(new Tooltip("check if the paper's on topic"));
-        guideText2.setTooltip(new Tooltip("if there's plag - all your efforts will\n" +
-                "be wasted > do not skip this step"));
-        guideText3.setTooltip(new Tooltip("title page and references not included"));
-        guideText4.setTooltip(new Tooltip("mind +/-10% leeway rule; "));
-        guideText5.setTooltip(new Tooltip("Most of the time Times New Roman 12"));
-        guideText6.setTooltip(new Tooltip("APA:     |\"TOPIC        PAGE\"|\n" +
-                                             "HARV:  |\"          Topic PAGE\"|\n" +
-                                             "MLA:     |\"          Surname PAGE\"|"));
-        guideText7.setTooltip(new Tooltip("APA:\n" +
+        Tooltip tooltipForGuide = new Tooltip();
+        Tooltip tooltipForGuide2 = new Tooltip();
+        Tooltip tooltipForGuide3 = new Tooltip();
+        Tooltip tooltipForGuide4 = new Tooltip();
+        Tooltip tooltipForGuide5 = new Tooltip();
+        Tooltip tooltipForGuide6 = new Tooltip();
+        Tooltip tooltipForGuide7 = new Tooltip();
+        Tooltip tooltipForGuide8 = new Tooltip();
+        Tooltip tooltipForGuide9 = new Tooltip();
+        Tooltip tooltipForGuide10 = new Tooltip();
+        Tooltip tooltipForGuide11 = new Tooltip();
+        Tooltip tooltipForGuide12 = new Tooltip();
+
+        tooltipForGuide.setShowDuration(Duration.seconds(10));
+        tooltipForGuide2.setShowDuration(Duration.seconds(10));
+        tooltipForGuide3.setShowDuration(Duration.seconds(10));
+        tooltipForGuide4.setShowDuration(Duration.seconds(10));
+        tooltipForGuide5.setShowDuration(Duration.seconds(10));
+        tooltipForGuide6.setShowDuration(Duration.seconds(10));
+        tooltipForGuide7.setShowDuration(Duration.seconds(10));
+        tooltipForGuide8.setShowDuration(Duration.seconds(10));
+        tooltipForGuide9.setShowDuration(Duration.seconds(10));
+        tooltipForGuide10.setShowDuration(Duration.seconds(10));
+        tooltipForGuide11.setShowDuration(Duration.seconds(10));
+        tooltipForGuide12.setShowDuration(Duration.seconds(10));
+
+        tooltipForGuide.setText("check if the paper's on topic");
+        tooltipForGuide2.setText("if there's plag - all your efforts will\n" +
+                "be wasted > do not skip this step");
+        tooltipForGuide4.setText("mind +/-10% leeway rule; title page and references not included");
+        tooltipForGuide5.setText("Most of the time Times New Roman 12");
+        tooltipForGuide6.setText("APA:     |\"TOPIC        PAGE\"|\n" +
+                "HARV:  |\"          Topic PAGE\"|\n" +
+                "MLA:     |\"          Surname PAGE\"|");
+        tooltipForGuide7.setText("APA:\n" +
                 "       (bold)Topic\n" +
-                "       (blank)\n" +
                 "       Name\n" +
                 "       University\n" +
                 "       (blankS)\n" +
                 "       (bold)Author Note\n" +
                 "HARV:\n        TOPIC\n         Name\n        (blank)\n         Course\n         Prof Name\n         Institution\n         Location\n         Date\n" +
-                "MLA:\nName\nProf Name\nCourse\nDate"));
-      //  guideText8.setTooltip(new Tooltip(""));
-        guideText9.setTooltip(new Tooltip("Ctrl + L"));
-        guideText11.setTooltip(new Tooltip("US: suffix -> iz and yz \n UK:  suffix -> is and ys\n Press Hint for Help"));
-        guideText12.setTooltip(new Tooltip("Press Hint for Help"));
+                "MLA:\nName\nProf Name\nCourse\nDate");
+        tooltipForGuide9.setText("Ctrl + L");
+        tooltipForGuide11.setText("US: suffix -> iz and yz \n UK:  suffix -> is and ys\n Press Hint for Help");
+        tooltipForGuide12.setText("Press Hint for Help");
+
+        guideText.setTooltip(tooltipForGuide);
+        guideText2.setTooltip(tooltipForGuide2);
+        guideText5.setTooltip(tooltipForGuide5);
+        guideText6.setTooltip(tooltipForGuide6);
+        guideText7.setTooltip(tooltipForGuide7);
+        guideText4.setTooltip(tooltipForGuide4);
+        guideText9.setTooltip(tooltipForGuide9);
+        guideText11.setTooltip(tooltipForGuide11);
+        guideText12.setTooltip(tooltipForGuide12);
     }
     public void handleButton(ActionEvent event) throws Exception {
         QAFormatter obj = new QAFormatter();
