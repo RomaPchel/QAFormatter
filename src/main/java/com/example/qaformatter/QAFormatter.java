@@ -199,7 +199,7 @@ public class QAFormatter {
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String line = bufferedReader.readLine();
-        String[] possibleStartPoint = {"Author Note", "Authors Note", "Author`s Note", "Author's Note", "Author Note", "Date", "date", "The Date", "The date", "Introduction", "introduction"};
+        String[] possibleStartPoint = {"Author Note", "Authors Note", "Author`s Note", "Author's Note", "Author Note", "Date", "Date:", "date", "date:", "The Date","The Date:", "The date", "The date:", "Introduction", "introduction"};
         int wordCount = 0;
         boolean startCount = false;
         //!line.equals("References")
