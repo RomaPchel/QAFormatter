@@ -20,11 +20,21 @@ public class HelloApplication extends Application {
 
     static String filePathGlobal;
     static boolean successGlobal;
-
     @FXML
      private Label wordCountText;
     @FXML
      private Label ReferenceCountText;
+
+    public static String getFileName() {
+        return fileName;
+    }
+
+    public static void setFileName(String fileName) {
+        HelloApplication.fileName = fileName;
+    }
+
+    @FXML
+    static private String fileName;
     @FXML
     private Label hoverText;
     @FXML
@@ -89,6 +99,8 @@ public class HelloApplication extends Application {
     private Button headingButton;
     @FXML
     private Button titlesButton;
+    @FXML
+    private Button refreshCheckBoxes;
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -149,17 +161,31 @@ public class HelloApplication extends Application {
                 "be wasted > do not skip this step");
         tooltipForGuide4.setText("mind +/-10% leeway rule; title page and references not included");
         tooltipForGuide5.setText("Most of the time Times New Roman 12");
-        tooltipForGuide6.setText("APA:     |\"TOPIC        PAGE\"|\n" +
-                "HARV:  |\"          Topic PAGE\"|\n" +
-                "MLA:     |\"          Surname PAGE\"|");
-        tooltipForGuide7.setText("APA:\n" +
-                "       (bold)Topic\n" +
-                "       Name\n" +
-                "       University\n" +
-                "       (blankS)\n" +
-                "       (bold)Author Note\n" +
-                "HARV:\n        TOPIC\n         Name\n        (blank)\n         Course\n         Prof Name\n         Institution\n         Location\n         Date\n" +
-                "MLA:\nName\nProf Name\nCourse\nDate");
+        tooltipForGuide6.setText("""
+                APA:     |"TOPIC        PAGE"|
+                HARV:  |"          Topic PAGE"|
+                MLA:     |"          Surname PAGE"|""");
+        tooltipForGuide7.setText("""
+                APA:
+                       (bold)Topic
+                       Name
+                       University
+                       (blankS)
+                       (bold)Author Note
+                HARV:
+                        TOPIC
+                         Name
+                        (blank)
+                         Course
+                         Prof Name
+                         Institution
+                         Location
+                         Date
+                MLA:
+                Name
+                Prof Name
+                Course
+                Date""");
         tooltipForGuide9.setText("Ctrl + L");
         tooltipForGuide11.setText("US: suffix -> iz and yz \n UK:  suffix -> is and ys\n Press Hint for Help");
         tooltipForGuide12.setText("Press Hint for Help");
@@ -193,11 +219,12 @@ public class HelloApplication extends Application {
                 }
                 else
                 {
-                    dragText.setText("Formatted");
-                    wordCountText.setText("Word count: " + obj.countWords() + "+- some words");
+
+                    dragText.setText(getFileName());
+                    wordCountText.setText("Word count: " + obj.countWords() + " +- some words");
 
                     ReferenceCountText.setText("Reference count: " + obj.countReferences());
-
+                    System.out.println(getFileName());
                     System.out.println("APA");
                     System.out.println(returnSuccess());
                 }
@@ -206,7 +233,7 @@ public class HelloApplication extends Application {
 
         if ((event.getSource() == FORMAT)) {
             if (returnPath() == null){
-                dragText.setText("Drag File!");
+                dragText.setText("Drag File");
             }else{
                 obj.changeStyle(obj.robot);
                 obj.saveFile(obj.robot);
@@ -214,6 +241,22 @@ public class HelloApplication extends Application {
             }
 
         }
+    }
+    public void setRefreshCheckBoxes(ActionEvent event){
+       if (event.getSource() == refreshCheckBoxes){
+           checkBox.setSelected(false);
+           checkBox2.setSelected(false);
+           checkBox3.setSelected(false);
+           checkBox4.setSelected(false);
+           checkBox5.setSelected(false);
+           checkBox6.setSelected(false);
+           checkBox7.setSelected(false);
+           checkBox8.setSelected(false);
+           checkBox9.setSelected(false);
+           checkBox10.setSelected(false);
+           checkBox11.setSelected(false);
+           checkBox12.setSelected(false);
+       }
     }
     public void handleLanguageSite(ActionEvent event){
         if (event.getSource() == openLanguageSite){
@@ -259,15 +302,17 @@ public class HelloApplication extends Application {
         fxmlLoader.setController(this);
 
 
-        guideText = new TextField("NONE");
 
+
+        guideText = new TextField("NONE");
+        //fileName = new Label("File Name");
         wordCountText = new Label();
         ReferenceCountText = new Label();
 
         COUNT = new Button();
 
         FORMAT = new Button();
-        scene.setOnDragOver(new EventHandler<DragEvent>() {
+        scene.setOnDragOver(new EventHandler<>() {
             @Override
             public void handle(DragEvent event) {
                 Dragboard db = event.getDragboard();
@@ -282,7 +327,7 @@ public class HelloApplication extends Application {
 
 
         // Dropping over surface
-        scene.setOnDragDropped(new EventHandler<DragEvent>() {
+        scene.setOnDragDropped(new EventHandler<>() {
             @Override
             public void handle(DragEvent event) {
                 Dragboard db = event.getDragboard();
@@ -290,10 +335,11 @@ public class HelloApplication extends Application {
                 if (db.hasFiles()) {
 
                     setSuccess(true);
-                    for (File file:db.getFiles()) {
+                    for (File file : db.getFiles()) {
                         setFilePathGlobal(file.getPath());
                         System.out.println(file.getPath());
                         System.out.println(file.getName());
+                        setFileName(file.getName());
 
 
                     }
@@ -308,9 +354,9 @@ public class HelloApplication extends Application {
 
         stage.setTitle("QAFormatter");
         stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
-        stage.setX(400);
+        stage.setX(450);
         stage.setY(200);
-        stage.setHeight(500);
+        stage.setHeight(550);
         stage.setWidth(500);
         stage.setScene(scene);
         stage.show();
@@ -318,9 +364,6 @@ public class HelloApplication extends Application {
     }
 
 
-    private String toString(String name) {
-        return "" + name;
-    }
 
     void setFilePathGlobal(String path){
         filePathGlobal = path;

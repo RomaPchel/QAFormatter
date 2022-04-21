@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
+
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.qaformatter.HelloApplication">
 
@@ -20,15 +21,20 @@
         <CheckBox fx:id="checkBox4" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="0" GridPane.rowIndex="3" /> <TextField fx:id="guideText4" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="3" /> <CheckBox fx:id="checkBox10" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="2" GridPane.rowIndex="3" /> <TextField fx:id="guideText10" style="-fx-font: 14 arial;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
         <CheckBox fx:id="checkBox5" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="0" GridPane.rowIndex="4" /> <TextField fx:id="guideText5" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="4" /> <CheckBox fx:id="checkBox11" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="2" GridPane.rowIndex="4" /> <TextField fx:id="guideText11" style="-fx-font: 14 arial;" GridPane.columnIndex="3" GridPane.rowIndex="4" /> <Button fx:id="openLanguageSite" text="hint" GridPane.columnIndex="4" GridPane.rowIndex="4" onAction="#handleLanguageSite"/>
         <CheckBox fx:id="checkBox6" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="0" GridPane.rowIndex="5" /> <TextField fx:id="guideText6" style="-fx-font: 14 arial;" GridPane.columnIndex="1" GridPane.rowIndex="5" /> <CheckBox fx:id="checkBox12" style="-fx-padding: 5px; -fx-border-insets: 5px; -fx-background-insets: 5px;" GridPane.columnIndex="2" GridPane.rowIndex="5" /> <TextField fx:id="guideText12" style="-fx-font: 14 arial;" GridPane.columnIndex="3" GridPane.rowIndex="5" /> <Button fx:id="openReferencesSite" text="hint" GridPane.columnIndex="4" GridPane.rowIndex="5" onAction="#handleLanguageSite"/>
-
     </GridPane>
 
+    <Button fx:id="refreshCheckBoxes" text="↺" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER  " onAction="#setRefreshCheckBoxes" />
+
     <Label fx:id="dragText" style="-fx-font: 18 arial;"/>
-    <Label fx:id="ReferenceCountText" />
+    <Label  fx:id="ReferenceCountText" />
     <Label fx:id="wordCountText" />
+
     <Button fx:id="FORMAT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #7618A0FF; -fx-row-valignment: CENTER  " text="FORMAT"/>
     <Button fx:id="COUNT" onAction="#handleButton" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER  " text="COUNT"/>
 
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
 
 
 
