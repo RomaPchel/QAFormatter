@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -101,6 +103,19 @@ public class HelloApplication extends Application {
     private Button titlesButton;
     @FXML
     private Button refreshCheckBoxes;
+    @FXML
+    private Button pinButton;
+    private static Stage pStage;
+
+    public static Stage getPrimaryStage() {
+        return pStage;
+    }
+
+    private void setPrimaryStage(Stage pStage) {
+        HelloApplication.pStage = pStage;
+    }
+
+    private boolean getPin;
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -109,7 +124,6 @@ public class HelloApplication extends Application {
 
     @FXML
     private void initialize() {
-
         if (returnPath() != null) {
             dragText.setText("Done!");
         }else{
@@ -258,6 +272,7 @@ public class HelloApplication extends Application {
            checkBox12.setSelected(false);
        }
     }
+
     public void handleLanguageSite(ActionEvent event){
         if (event.getSource() == openLanguageSite){
             Runtime rt = Runtime.getRuntime();
@@ -293,25 +308,25 @@ public class HelloApplication extends Application {
             }
         }
     }
+
+
     @Override
     public void start(Stage stage) throws Exception {
 
+        setPrimaryStage(stage);
+        pStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-
         Scene scene = new Scene(fxmlLoader.load(), 450, 320);
         fxmlLoader.setController(this);
 
-
-
-
         guideText = new TextField("NONE");
-        //fileName = new Label("File Name");
         wordCountText = new Label();
         ReferenceCountText = new Label();
-
         COUNT = new Button();
-
         FORMAT = new Button();
+
+        pinButton = new Button("");
+
         scene.setOnDragOver(new EventHandler<>() {
             @Override
             public void handle(DragEvent event) {
@@ -340,18 +355,15 @@ public class HelloApplication extends Application {
                         System.out.println(file.getPath());
                         System.out.println(file.getName());
                         setFileName(file.getName());
-
-
                     }
                 }
                 event.setDropCompleted(successGlobal);
 
                 event.consume();
-
             }
-
         });
 
+        stage.setAlwaysOnTop(true);
         stage.setTitle("QAFormatter");
         stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
         stage.setX(450);
@@ -363,6 +375,12 @@ public class HelloApplication extends Application {
 
     }
 
+    public void handlePin(ActionEvent event){
+        if (event.getSource() == pinButton){
+            getPin = !getPin;
+            pStage.setAlwaysOnTop(!getPin);
+        }
+    }
 
 
     void setFilePathGlobal(String path){
