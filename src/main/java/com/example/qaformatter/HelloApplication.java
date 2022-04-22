@@ -201,7 +201,7 @@ public class HelloApplication extends Application {
         guideText12.setTooltip(tooltipForGuide12);
     }
     public void handleButton(ActionEvent event) throws Exception {
-        QAFormatter obj = new QAFormatter();
+        FormatFuncs obj = new FormatFuncs();
         if ((event.getSource() == COUNT) ) {
 
             if (returnPath() == null){

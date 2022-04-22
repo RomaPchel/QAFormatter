@@ -19,7 +19,7 @@ public class HelloController {
     }
 
     public boolean APAwasPressed;
-    QAFormatter obj = new QAFormatter();
+    //QAFormatter obj = new QAFormatter();
     public Label count;
     @FXML
     private Label wordCountText;

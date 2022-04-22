@@ -11,12 +11,12 @@ import java.util.Scanner;
 import com.aspose.words.*;
 
 
-public class QAFormatter {
+public class FormatFuncs {
 
     static int [] timesNewRoman = {KeyEvent.VK_T, KeyEvent.VK_I,KeyEvent.VK_M,KeyEvent.VK_E};
     Robot robot = new Robot();
 
-    public QAFormatter() throws AWTException {
+    public FormatFuncs() throws AWTException {
     }
 
 
@@ -84,7 +84,7 @@ public class QAFormatter {
 
     }
     void changeStyle(Robot robot) throws AWTException, InterruptedException {
-        QAFormatter object = new QAFormatter();
+        FormatFuncs object = new FormatFuncs();
         object.setSpacing2(robot);
         object.setFontStyle(robot);
         object.setFontSize(robot);
