@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="QAFormatter" options="--add-exports javafx.graphics/com.sun.javafx.stage=com.example.qaformatter" />
+      <module name="QAFormatter" options="" />
     </option>
   </component>
 </project>

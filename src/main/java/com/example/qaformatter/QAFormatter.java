@@ -19,21 +19,7 @@ public class QAFormatter {
     public QAFormatter() throws AWTException {
     }
 
-    public static void main(String[] args)  throws Exception{
-        Scanner scanner = new Scanner(System.in);
-        QAFormatter object = new QAFormatter();
 
-        System.out.println("enter spacing");
-        int spacing = scanner.nextInt();
-        Thread.sleep(1500);
-        switch (spacing){
-            case 1:
-                object.setSpacing1(object.robot);
-            case 2:
-                object.setSpacing2(object.robot);
-        }
-
-    }
 
     void saveFile(Robot robot){
         robot.keyPress(KeyEvent.VK_SHIFT);
