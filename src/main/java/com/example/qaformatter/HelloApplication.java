@@ -1,5 +1,6 @@
 package com.example.qaformatter;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,8 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class HelloApplication extends Application {
 
@@ -39,6 +39,10 @@ public class HelloApplication extends Application {
     static private String fileName;
     @FXML
     private Label hoverText;
+    @FXML
+    private Label license;
+    @FXML
+    private Button exitApp;
     @FXML
     private Button COUNT;
     @FXML
@@ -119,17 +123,25 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         Application.launch(args);
+
     }
 
+    private boolean checkLicense() throws IOException {
+        File fileWithLicence = new File("D:\\QAFormatter\\src\\main\\resources\\com\\example\\qaformatter\\licensekey.txt");
+        FileInputStream fileInputStream = new FileInputStream(fileWithLicence);
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
+        String line = bufferedReader.readLine();
+        String license = line.replace("2","l!");
+        license = license.replace("C","#>");
+        return license.equals("mtl!Nw3&PS#>9+_)hX");
+    }
     @FXML
     private void initialize() {
-        if (returnPath() != null) {
-            dragText.setText("Done!");
-        }else{
-            dragText.setText("Drag File and Press Format!");
 
-        }
+        dragText.setText("Drag File and Press Format!");
+
         hoverText.setText("Hover Over Text to See Hint!");
         guideText.textProperty().set("Instructions");
         guideText2.textProperty().set("Originality");
@@ -252,7 +264,8 @@ public class HelloApplication extends Application {
             if (returnPath() == null){
                 dragText.setText("Drag File");
             }else{
-                obj.changeStyle(obj.robot);
+                obj.deleteDoubleSpaces(obj.robot);
+               // obj.changeStyle(obj.robot);
                 obj.saveFile(obj.robot);
                 dragText.setText("Counted");
             }
@@ -315,66 +328,90 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        if ( checkLicense()){
+            System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
+            System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
+            setPrimaryStage(stage);
+            pStage = stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 450, 320);
+            fxmlLoader.setController(this);
 
-        setPrimaryStage(stage);
-        pStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 450, 320);
-        fxmlLoader.setController(this);
+            guideText = new TextField("NONE");
+            wordCountText = new Label();
+            ReferenceCountText = new Label();
+            COUNT = new Button();
+            FORMAT = new Button();
 
-        guideText = new TextField("NONE");
-        wordCountText = new Label();
-        ReferenceCountText = new Label();
-        COUNT = new Button();
-        FORMAT = new Button();
+            pinButton = new Button("");
 
-        pinButton = new Button("");
+            scene.setOnDragOver(new EventHandler<>() {
+                @Override
+                public void handle(DragEvent event) {
+                    Dragboard db = event.getDragboard();
+                    if (db.hasFiles()) {
 
-        scene.setOnDragOver(new EventHandler<>() {
-            @Override
-            public void handle(DragEvent event) {
-                Dragboard db = event.getDragboard();
-                if (db.hasFiles()) {
-
-                    event.acceptTransferModes(TransferMode.COPY);
-                } else {
-                    event.consume();
-                }
-            }
-        });
-
-
-        // Dropping over surface
-        scene.setOnDragDropped(new EventHandler<>() {
-            @Override
-            public void handle(DragEvent event) {
-                Dragboard db = event.getDragboard();
-                setSuccess(false);
-                if (db.hasFiles()) {
-
-                    setSuccess(true);
-                    for (File file : db.getFiles()) {
-                        setFilePathGlobal(file.getPath());
-                        System.out.println(file.getPath());
-                        System.out.println(file.getName());
-                        setFileName(file.getName());
+                        event.acceptTransferModes(TransferMode.COPY);
+                    } else {
+                        event.consume();
                     }
                 }
-                event.setDropCompleted(successGlobal);
+            });
 
-                event.consume();
-            }
-        });
 
-        stage.setAlwaysOnTop(true);
-        stage.setTitle("QAFormatter");
-        stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
-        stage.setX(450);
-        stage.setY(200);
-        stage.setHeight(550);
-        stage.setWidth(500);
-        stage.setScene(scene);
-        stage.show();
+            // Dropping over surface
+            scene.setOnDragDropped(new EventHandler<>() {
+                @Override
+                public void handle(DragEvent event) {
+                    Dragboard db = event.getDragboard();
+                    setSuccess(false);
+                    if (db.hasFiles()) {
+
+                        setSuccess(true);
+                        for (File file : db.getFiles()) {
+                            setFilePathGlobal(file.getPath());
+                            System.out.println(file.getPath());
+                            System.out.println(file.getName());
+                            setFileName(file.getName());
+                        }
+                    }
+                    event.setDropCompleted(successGlobal);
+
+                    event.consume();
+                }
+            });
+
+            stage.setAlwaysOnTop(true);
+            stage.setTitle("QAFormatter");
+            stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
+            stage.setX(450);
+            stage.setY(200);
+            stage.setHeight(550);
+            stage.setWidth(500);
+            stage.setScene(scene);
+            stage.show();
+
+        }else{
+
+            BorderPane root = new BorderPane();
+            Scene scene = new Scene(root, 450, 320);
+
+            System.out.println("wrong license key");
+            license = new Label("Your License has Expired!\nContact me pchelintsevroman@gmail.com");
+            exitApp = new Button("close");
+            root.setCenter(license);
+            stage.setAlwaysOnTop(true);
+            stage.setTitle("QAFormatter");
+            stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
+
+            stage.setHeight(250);
+            stage.setWidth(300);
+            stage.setScene(scene);
+            stage.show();
+            exitApp.setOnAction(event -> Platform.exit());
+           // Platform.exit();
+        }
+
 
     }
 

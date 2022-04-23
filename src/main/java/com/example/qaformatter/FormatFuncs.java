@@ -219,7 +219,7 @@ public class FormatFuncs {
     }
 
 
-    void deleteHardReturnsForReferences(Robot robot) throws InterruptedException {
+    void deleteDoubleSpaces(Robot robot) throws InterruptedException {
 
         String deleteMacros = "Sub ReplaceSpaces()\n" +
                 "\n" +
@@ -229,9 +229,9 @@ public class FormatFuncs {
                 "\n" +
                 ".Replacement.ClearFormatting\n" +
                 "\n" +
-                ".Text = \"^p^p\"\n" +
+                ".Text = \"  \"\n" +
                 "\n" +
-                ".Replacement.Text = \"^p\"\n" +
+                ".Replacement.Text = \" \"\n" +
                 "\n" +
                 ".Forward = True\n" +
                 "\n" +
@@ -274,7 +274,7 @@ public class FormatFuncs {
         robot.keyRelease(KeyEvent.VK_A);
         robot.keyPress(KeyEvent.VK_DELETE);
         robot.keyRelease(KeyEvent.VK_DELETE);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 //        //Paste pre-written code
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_V);
