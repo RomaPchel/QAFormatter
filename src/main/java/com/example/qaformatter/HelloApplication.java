@@ -157,6 +157,9 @@ public class HelloApplication extends Application {
         Tooltip tooltipForGuide11 = new Tooltip();
         Tooltip tooltipForGuide12 = new Tooltip();
 
+        refreshCheckBoxes.setTooltip(new Tooltip("Uncheck All Boxes"));
+        pinButton.setTooltip(new Tooltip("Pin/Unpin App over Other Windows"));
+
         tooltipForGuide.setShowDuration(Duration.seconds(10));
         tooltipForGuide2.setShowDuration(Duration.seconds(10));
         tooltipForGuide3.setShowDuration(Duration.seconds(10));
@@ -284,7 +287,7 @@ public class HelloApplication extends Application {
             }
         }else if(event.getSource() == openReferencesSite){
             Runtime rt = Runtime.getRuntime();
-            String url = "https://writerscrmassetsbucket.s3.amazonaws.com/uploads/library_asset/2949542/All_Formats_Table_with_APA_7th_edition_upd.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQVZIBLWVMDVW2YKQ%2F20220415%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220415T100359Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=66c6ee34e0385e06ce750fea014106b21cb2a7cde42cd8c7c30d68d6973bbea1";
+            String url = "https://drive.google.com/file/d/1NPVOTRV4pUYt0U1BO_ALtVDWdW6RCfr8/view";
             try {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
             } catch (IOException ioException) {
