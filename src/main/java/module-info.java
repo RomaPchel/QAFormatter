@@ -3,6 +3,8 @@ module com.example.qaformatter {
     requires javafx.fxml;
     requires java.desktop;
     requires com.aspose.words;
+    requires unirest.java;
+    requires json;
 
 
     opens com.example.qaformatter to javafx.fxml;

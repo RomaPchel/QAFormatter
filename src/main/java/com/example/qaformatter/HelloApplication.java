@@ -127,15 +127,14 @@ public class HelloApplication extends Application {
     }
 
     private boolean checkLicense() throws IOException {
-        File fileWithLicence = new File("D:\\QAFormatter\\src\\main\\resources\\com\\example\\qaformatter\\licensekey.txt");
+        File fileWithLicence = new File("D:\\QAFormatter\\api-training\\updates.txt");
         FileInputStream fileInputStream = new FileInputStream(fileWithLicence);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         String line = bufferedReader.readLine();
-        String license = line.replace("2","l!");
-        license = license.replace("C","#>");
-        return license.equals("mtl!Nw3&PS#>9+_)hX");
+        return line.equals("True");
+
     }
     @FXML
     private void initialize() {
@@ -397,7 +396,7 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(root, 450, 320);
 
             System.out.println("wrong license key");
-            license = new Label("Your License has Expired!\nContact me pchelintsevroman@gmail.com");
+            license = new Label("Your License has Expired!\n Скинь бабки тварь");
             exitApp = new Button("close");
             root.setCenter(license);
             stage.setAlwaysOnTop(true);
