@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class HelloApplication extends Application {
 
@@ -127,7 +129,7 @@ public class HelloApplication extends Application {
     }
 
     private boolean checkLicense() throws IOException {
-        File fileWithLicence = new File("D:\\QAFormatter\\api-training\\updates.txt");
+        File fileWithLicence = new File("D:\\QAFormatter\\src\\main\\resources\\com\\example\\qaformatter\\licensekey.txt");
         FileInputStream fileInputStream = new FileInputStream(fileWithLicence);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -323,10 +325,32 @@ public class HelloApplication extends Application {
             }
         }
     }
+    private boolean parsePages() throws IOException {
 
+
+
+        URL url = new URL("https://romapchel.github.io/QAFormatter/");
+        URLConnection urlConnection = url.openConnection();
+        InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
+        BufferedReader buff = new BufferedReader(inStream);
+
+        String line = buff.readLine();
+        while (line != null) {
+            if (line.contains("<title>")) {
+                line = line.substring(7, 18);
+                System.out.println(line);
+            }
+            line = buff.readLine();
+        }
+        return true;
+
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        parsePages();
+
         if ( checkLicense()){
             System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
             System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
