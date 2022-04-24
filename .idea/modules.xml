@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Aspose/Aspose.iml" filepath="$PROJECT_DIR$/Aspose/Aspose.iml" />
       <module fileurl="file://$PROJECT_DIR$/QAFormatter.iml" filepath="$PROJECT_DIR$/QAFormatter.iml" />
     </modules>
   </component>
