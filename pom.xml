@@ -10,85 +10,22 @@
     <name>QAFormatter</name>
 
     <properties>
-
-            <!-- Installer Filename without suffix -->
-            <app.filename>QAFormatter</app.filename>
-
-            <!-- The JavaFX Application class name -->
-            <app.mainClass>com.example.qaformatter.Main</app.mainClass>
-
-            <!-- Optional override to specify where the cached files are stored. Default is current working directory -->
-            <app.cacheDir>USERLIB/FxlDemo</app.cacheDir>
-
-            <!-- Optional parameters to the application, will be embedded in the launcher and can be overriden on the command line -->
-            <app.parameters>--myOption=myValue --myOtherOption=myOtherValue</app.parameters>
-
-            <!-- The Application vendor used by javapackager -->
-            <app.vendor>Roma Pchelintsev</app.vendor>
-
-            <!-- The Application version used by javapackager -->
-            <app.version>2.0</app.version>
-
-            <!-- Base URL where you will host the application artifacts -->
-            <app.url>http://fxldemo.tornado.no/QAFormatter</app.url>
-
-            <!-- Optional scp target for application artifacts hosted at the above url -->
-            <app.deploy.target>w48839@fxldemo.tornado.no:fxldemo</app.deploy.target>
-
-            <!-- The app and launcher will be assembled in this folder -->
-            <app.dir>${project.build.directory}/app</app.dir>
-
-            <!-- Native installers will be built in this folder -->
-            <app.installerdir>${project.build.directory}/installer</app.installerdir>
-
-            <!-- Should the client downgrade if the server version is older than the local version? -->
-            <app.acceptDowngrade>false</app.acceptDowngrade>
-
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <junit.version>5.8.2</junit.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.7.1</junit.version>
     </properties>
-    <repositories>
-        <repository>
-            <id>AsposeJavaAPI</id>
-            <name>Aspose Java API</name>
-            <url>https://repository.aspose.com/repo/</url>
-        </repository>
-    </repositories>
+
     <dependencies>
-        <dependency>
-            <groupId>com.aspose</groupId>
-            <artifactId>aspose-words</artifactId>
-            <version>22.4</version>
-            <classifier>jdk17</classifier>
-        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>18</version>
+            <version>15.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>18</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>2.3.2</version>
+            <version>15.0.1</version>
         </dependency>
 
-        <!-- Runtime, com.sun.xml.bind module -->
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>no.tornado</groupId>
-            <artifactId>fxlauncher</artifactId>
-            <version>1.0.21</version>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -105,120 +42,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <!-- Generate app.xml manifest -->
-                <executions>
-                    <execution>
-                        <id>create-manifest</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>fxlauncher.CreateManifest</mainClass>
-                            <arguments>
-                                <argument>${app.url}</argument>
-                                <argument>${app.mainClass}</argument>
-                                <argument>${app.dir}</argument>
-                                <argument>--cache-dir=${app.cacheDir}</argument>
-                                <argument>--accept-downgrade=${app.acceptDowngrade}</argument>
-                                <argument>--include-extensions=jpg</argument>
-                                <argument>${app.parameters}</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <!-- Embed app.xml inside fxlauncher.xml so we don't need to reference app.xml to start the app -->
-                    <execution>
-                        <id>embed-manifest-in-launcher</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>jar</executable>
-                            <workingDirectory>${app.dir}</workingDirectory>
-                            <arguments>
-                                <argument>uf</argument>
-                                <argument>fxlauncher.jar</argument>
-                                <argument>app.xml</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <!-- Optional step to include custom UI, see https://github.com/edvin/fxlauncher-custom-ui -->
-                    <!--<execution>-->
-                    <!--<id>embed-custom-ui-in-launcher</id>-->
-                    <!--<phase>package</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>exec</goal>-->
-                    <!--</goals>-->
-                    <!--<configuration>-->
-                    <!--<executable>jar</executable>-->
-                    <!--<workingDirectory>${app.dir}</workingDirectory>-->
-                    <!--<arguments>-->
-                    <!--<argument>uf</argument>-->
-                    <!--<argument>fxlauncher.jar</argument>-->
-                    <!--<argument>-C</argument>-->
-                    <!--<argument>${project.basedir}/../fxlauncher-custom-ui/target/classes</argument>-->
-                    <!--<argument>.</argument>-->
-                    <!--</arguments>-->
-                    <!--</configuration>-->
-                    <!--</execution>-->
-                    <!-- Create native installer. Feel free to add more arguments as needed.
-                     https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javapackager.html
-                     -->
-                    <execution>
-                        <id>installer</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>javapackager</executable>
-
-                            <arguments>
-                                <argument>-deploy</argument>
-                                <argument>-native</argument>
-                                <argument>-outdir</argument>
-                                <argument>${app.installerdir}</argument>
-                                <argument>-outfile</argument>
-                                <argument>${app.filename}</argument>
-                                <argument>-srcdir</argument>
-                                <argument>${app.dir}</argument>
-                                <argument>-srcfiles</argument>
-                                <argument>fxlauncher.jar</argument>
-                                <argument>-appclass</argument>
-                                <argument>fxlauncher.Launcher</argument>
-                                <argument>-name</argument>
-                                <argument>${project.name}</argument>
-                                <argument>-title</argument>
-                                <argument>${project.name}</argument>
-                                <argument>-vendor</argument>
-                                <argument>${app.vendor}</argument>
-                                <argument>-BappVersion=${app.version}</argument>
-                                <argument>-Bidentifier=${project.groupId}.${project.artifactId}</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <!-- Copy application artifacts to remote site using scp (optional) -->
-                    <execution>
-                        <id>deploy-app</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>scp</executable>
-                            <arguments>
-                                <argument>-r</argument>
-                                <argument>target/app/.</argument>
-                                <argument>${app.deploy.target}</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
