@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>QAFormatter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>QAFormatter</name>
     <repositories>
         <repository>
@@ -72,7 +72,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.qaformatter/com.example.qaformatter.HelloApplication</mainClass>
+                            <mainClass>com.example.qaformatter.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
