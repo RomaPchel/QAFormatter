@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Main-Class: com.example.qaformatter.Main
+Class-Path: jogl-all-2.3.2-natives-linux-armv6hf.jar jogl-all-2.3.2-nati
+ ves-windows-i586.jar httpclient-4.5.2.jar jogl-all-2.3.2-natives-solari
+ s-amd64.jar gluegen-rt-2.3.2-natives-linux-armv6hf.jar jogl-all-2.3.2-n
+ atives-solaris-i586.jar jogl-all-2.3.2-natives-android-armv6.jar gluege
+ n-rt-2.3.2-natives-macosx-universal.jar javafx-fxml-15.0.1.jar jogl-all
+ -main-2.3.2.jar json-functions-1.4.jar jogl-all-2.3.2-natives-linux-i58
+ 6.jar httpasyncclient-4.1.1.jar gluegen-rt-2.3.2-natives-linux-i586.jar
+  jogl-all-2.3.2-natives-linux-armv6.jar jogl-all-2.3.2-natives-windows-
+ amd64.jar gluegen-rt-2.3.2-natives-linux-amd64.jar kotlin-stdlib-common
+ -1.4.0.jar java-telegram-bot-api-5.7.0.jar gluegen-rt-2.3.2-natives-lin
+ ux-armv6.jar httpmime-4.5.2.jar int-output-1.1.jar httpcore-nio-4.4.4.j
+ ar httpcore-4.4.4.jar jogl-all-2.3.2-natives-linux-amd64.jar javafx-gra
+ phics-15.0.1-win.jar immutables-2.0.jar javafx-graphics-15.0.1.jar comm
+ ons-logging-1.2.jar unirest-java-1.4.9.jar jogl-all-2.3.2.jar gluegen-r
+ t-2.3.2-natives-android-armv6.jar jogl-all-2.3.2-natives-android-aarch6
+ 4.jar javafx-controls-15.0.1.jar javafx-fxml-15.0.1-win.jar gluegen-rt-
+ 2.3.2-natives-solaris-i586.jar json-20160810.jar gson-2.8.6.jar gluegen
+ -rt-2.3.2.jar kotlin-stdlib-jdk8-1.4.10.jar gluegen-rt-main-2.3.2.jar o
+ kio-2.8.0.jar kotlin-stdlib-1.4.10.jar javafx-controls-15.0.1-win.jar l
+ ogging-interceptor-4.9.0.jar javafx-base-15.0.1-win.jar javafx-base-15.
+ 0.1.jar annotations-13.0.jar gluegen-rt-2.3.2-natives-android-aarch64.j
+ ar json-simple-1.5.jar aspose-words-22.4-shaping-harfbuzz-plugin.jar gl
+ uegen-rt-2.3.2-natives-windows-i586.jar jogl-all-2.3.2-natives-macosx-u
+ niversal.jar kotlin-stdlib-jdk7-1.4.10.jar aspose-words-22.4-jdk17.jar 
+ textmatcher-1.1.jar commons-codec-1.9.jar gluegen-rt-2.3.2-natives-sola
+ ris-amd64.jar gluegen-rt-2.3.2-natives-windows-amd64.jar okhttp-4.9.0.j
+ ar
+
