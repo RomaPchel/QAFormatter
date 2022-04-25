@@ -128,16 +128,7 @@ public class HelloApplication extends Application {
 
     }
 
-    private boolean checkLicense() throws IOException {
-        File fileWithLicence = new File("D:\\QAFormatter\\src\\main\\resources\\com\\example\\qaformatter\\licensekey.txt");
-        FileInputStream fileInputStream = new FileInputStream(fileWithLicence);
-        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-        String line = bufferedReader.readLine();
-        return line.equals("True");
-
-    }
     @FXML
     private void initialize() {
 
@@ -329,7 +320,7 @@ public class HelloApplication extends Application {
 
 
 
-        URL url = new URL("https://romapchel.github.io/QAFormatter/");
+        URL url = new URL("http://smelamash.com/QAFormatter.html");
         URLConnection urlConnection = url.openConnection();
         InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
         BufferedReader buff = new BufferedReader(inStream);
@@ -337,21 +328,26 @@ public class HelloApplication extends Application {
         String line = buff.readLine();
         while (line != null) {
             if (line.contains("<title>")) {
-                line = line.substring(7, 18);
-                System.out.println(line);
+                line = line.substring(11, 15);
+                if (line.equals("True")){
+                    return true;
+                }else{
+                    return false;
+                }
+
             }
             line = buff.readLine();
         }
-        return true;
+      return false;
 
     }
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        parsePages();
 
-        if ( checkLicense()){
+
+        if ( parsePages()){
             System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
             System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
             setPrimaryStage(stage);
