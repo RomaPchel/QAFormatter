@@ -180,7 +180,7 @@ public class FormatFuncs {
         Document doc = new Document( appObj.returnPath());
 
         doc.save("Output.txt");
-        File file = new File("D:\\QAFormatter\\Output.txt");
+        File file = new File(System.getProperty("user.dir")+ "\\output.txt");
         FileInputStream fileInputStream = new FileInputStream(file);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
