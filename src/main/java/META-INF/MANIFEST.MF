@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Main-Class: com.example.qaformatter.Main
+Class-Path: gluegen-rt-2.3.2.jar gluegen-rt-2.3.2-natives-linux-armv6.ja
+ r jogl-all-2.3.2-natives-windows-i586.jar logging-interceptor-4.9.0.jar
+  jogl-all-2.3.2-natives-linux-armv6hf.jar httpclient-4.5.2.jar gson-2.8
+ .6.jar unirest-java-1.4.9.jar gluegen-rt-main-2.3.2.jar gluegen-rt-2.3.
+ 2-natives-linux-amd64.jar kotlin-stdlib-common-1.4.0.jar annotations-13
+ .0.jar json-20160810.jar kotlin-stdlib-1.4.10.jar javafx-fxml-15.0.1-wi
+ n.jar jogl-all-2.3.2-natives-linux-amd64.jar httpasyncclient-4.1.1.jar 
+ kotlin-stdlib-jdk8-1.4.10.jar okio-2.8.0.jar gluegen-rt-2.3.2-natives-w
+ indows-amd64.jar javafx-controls-15.0.1-win.jar jogl-all-2.3.2-natives-
+ linux-i586.jar gluegen-rt-2.3.2-natives-android-aarch64.jar javafx-base
+ -15.0.1.jar jogl-all-2.3.2-natives-linux-armv6.jar gluegen-rt-2.3.2-nat
+ ives-windows-i586.jar javafx-graphics-15.0.1.jar gluegen-rt-2.3.2-nativ
+ es-linux-i586.jar commons-codec-1.9.jar immutables-2.0.jar kotlin-stdli
+ b-jdk7-1.4.10.jar okhttp-4.9.0.jar javafx-controls-15.0.1.jar jogl-all-
+ 2.3.2.jar javafx-graphics-15.0.1-win.jar aspose-words-22.4-jdk17.jar gl
+ uegen-rt-2.3.2-natives-solaris-i586.jar jogl-all-2.3.2-natives-solaris-
+ i586.jar gluegen-rt-2.3.2-natives-android-armv6.jar httpcore-nio-4.4.4.
+ jar jogl-all-2.3.2-natives-windows-amd64.jar httpmime-4.5.2.jar aspose-
+ words-22.4-shaping-harfbuzz-plugin.jar javafx-fxml-15.0.1.jar json-simp
+ le-1.5.jar gluegen-rt-2.3.2-natives-macosx-universal.jar jogl-all-main-
+ 2.3.2.jar jogl-all-2.3.2-natives-android-armv6.jar gluegen-rt-2.3.2-nat
+ ives-linux-armv6hf.jar gluegen-rt-2.3.2-natives-solaris-amd64.jar javaf
+ x-base-15.0.1-win.jar jogl-all-2.3.2-natives-solaris-amd64.jar commons-
+ logging-1.2.jar json-functions-1.4.jar jogl-all-2.3.2-natives-android-a
+ arch64.jar httpcore-4.4.4.jar textmatcher-1.1.jar java-telegram-bot-api
+ -5.7.0.jar jogl-all-2.3.2-natives-macosx-universal.jar int-output-1.1.j
+ ar
+

@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 
 public class HelloApplication extends Application {
 
@@ -112,7 +113,7 @@ public class HelloApplication extends Application {
     @FXML
     private Button pinButton;
     private static Stage pStage;
-
+    private int execNumber;
     public static Stage getPrimaryStage() {
         return pStage;
     }
@@ -318,37 +319,48 @@ public class HelloApplication extends Application {
     }
     private boolean parsePages() throws IOException {
 
+        try {
+            URL url = new URL("https://romapchel.github.io/QAFormatter/");
+            URLConnection urlConnection = url.openConnection();
+            InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
+            BufferedReader buff = new BufferedReader(inStream);
 
+            String line = buff.readLine();
+            while (line != null) {
+                if (line.contains("<title>")) {
 
-        URL url = new URL("https://romapchel.github.io/QAFormatter/");
-        URLConnection urlConnection = url.openConnection();
-        InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
-        BufferedReader buff = new BufferedReader(inStream);
+                    line = line.substring(11, 15);
+                    System.out.println(line);
+                    if (line.equals("True")){
+                        execNumber = 0;
+                        return true;
 
-        String line = buff.readLine();
-        while (line != null) {
-            if (line.contains("<title>")) {
-                line = line.substring(11, 15);
-                if (line.equals("True")){
-                    return true;
-                }else{
-                    return false;
+                    }else{
+                        execNumber= 1;
+                        return false;
+                    }
+
                 }
-
-
+                line = buff.readLine();
             }
-            line = buff.readLine();
-        }
-      return false;
 
+        }catch (UnknownHostException e){
+            System.out.println("aboa");
+           execNumber =3;
+           return false;
+        }
+
+
+        return false;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
 
+       // parsePages();
+        System.out.println(execNumber);
+        if (parsePages()) {
 
-
-        if ( parsePages()){
             System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
             System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
             setPrimaryStage(stage);
@@ -410,29 +422,47 @@ public class HelloApplication extends Application {
             stage.setWidth(500);
             stage.setScene(scene);
             stage.show();
+        }else {
+            if (execNumber == 1) {
+                BorderPane root = new BorderPane();
+                Scene scene = new Scene(root, 450, 320);
 
-        }else{
+                System.out.println("wrong license key");
+                license = new Label("Your License has Expired!\n");
+                exitApp = new Button("close");
+                root.setCenter(license);
+                stage.setAlwaysOnTop(true);
+                stage.setTitle("QAFormatter");
+                stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
 
-            BorderPane root = new BorderPane();
-            Scene scene = new Scene(root, 450, 320);
+                stage.setHeight(250);
+                stage.setWidth(300);
+                stage.setScene(scene);
+                stage.show();
+                exitApp.setOnAction(event -> Platform.exit());
+                // Platform.exit();
+            } else if (execNumber == 3) {
+                BorderPane root = new BorderPane();
+                Scene scene = new Scene(root, 450, 320);
 
-            System.out.println("wrong license key");
-            license = new Label("Your License has Expired!\n Скинь бабки тварь");
-            exitApp = new Button("close");
-            root.setCenter(license);
-            stage.setAlwaysOnTop(true);
-            stage.setTitle("QAFormatter");
-            stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
+                System.out.println("wrong license key");
+                license = new Label("No Internet!\n");
+                exitApp = new Button("close");
+                root.setCenter(license);
+                stage.setAlwaysOnTop(true);
+                stage.setTitle("QAFormatter");
+                stage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png"));
 
-            stage.setHeight(250);
-            stage.setWidth(300);
-            stage.setScene(scene);
-            stage.show();
-            exitApp.setOnAction(event -> Platform.exit());
-           // Platform.exit();
+                stage.setHeight(250);
+                stage.setWidth(300);
+                stage.setScene(scene);
+                stage.show();
+                exitApp.setOnAction(event -> Platform.exit());
+                // Platform.exit();
+            }
+
+
         }
-
-
     }
 
     public void handlePin(ActionEvent event){
