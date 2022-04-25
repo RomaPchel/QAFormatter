@@ -320,7 +320,7 @@ public class HelloApplication extends Application {
 
 
 
-        URL url = new URL("http://smelamash.com/QAFormatter.html");
+        URL url = new URL("https://romapchel.github.io/QAFormatter/");
         URLConnection urlConnection = url.openConnection();
         InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
         BufferedReader buff = new BufferedReader(inStream);
@@ -334,6 +334,7 @@ public class HelloApplication extends Application {
                 }else{
                     return false;
                 }
+
 
             }
             line = buff.readLine();
