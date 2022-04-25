@@ -1,21 +1,16 @@
 package com.example.qaformatter;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
@@ -345,7 +340,6 @@ public class HelloApplication extends Application {
             }
 
         }catch (UnknownHostException e){
-            System.out.println("aboa");
            execNumber =3;
            return false;
         }
@@ -377,40 +371,34 @@ public class HelloApplication extends Application {
 
             pinButton = new Button("");
 
-            scene.setOnDragOver(new EventHandler<>() {
-                @Override
-                public void handle(DragEvent event) {
-                    Dragboard db = event.getDragboard();
-                    if (db.hasFiles()) {
+            scene.setOnDragOver(event -> {
+                Dragboard db = event.getDragboard();
+                if (db.hasFiles()) {
 
-                        event.acceptTransferModes(TransferMode.COPY);
-                    } else {
-                        event.consume();
-                    }
+                    event.acceptTransferModes(TransferMode.COPY);
+                } else {
+                    event.consume();
                 }
             });
 
 
             // Dropping over surface
-            scene.setOnDragDropped(new EventHandler<>() {
-                @Override
-                public void handle(DragEvent event) {
-                    Dragboard db = event.getDragboard();
-                    setSuccess(false);
-                    if (db.hasFiles()) {
+            scene.setOnDragDropped(event -> {
+                Dragboard db = event.getDragboard();
+                setSuccess(false);
+                if (db.hasFiles()) {
 
-                        setSuccess(true);
-                        for (File file : db.getFiles()) {
-                            setFilePathGlobal(file.getPath());
-                            System.out.println(file.getPath());
-                            System.out.println(file.getName());
-                            setFileName(file.getName());
-                        }
+                    setSuccess(true);
+                    for (File file : db.getFiles()) {
+                        setFilePathGlobal(file.getPath());
+                        System.out.println(file.getPath());
+                        System.out.println(file.getName());
+                        setFileName(file.getName());
                     }
-                    event.setDropCompleted(successGlobal);
-
-                    event.consume();
                 }
+                event.setDropCompleted(successGlobal);
+
+                event.consume();
             });
 
             stage.setAlwaysOnTop(true);
@@ -439,7 +427,6 @@ public class HelloApplication extends Application {
                 stage.setWidth(300);
                 stage.setScene(scene);
                 stage.show();
-                exitApp.setOnAction(event -> Platform.exit());
                 // Platform.exit();
             } else if (execNumber == 3) {
                 BorderPane root = new BorderPane();
@@ -447,7 +434,6 @@ public class HelloApplication extends Application {
 
                 System.out.println("wrong license key");
                 license = new Label("No Internet!\n");
-                exitApp = new Button("close");
                 root.setCenter(license);
                 stage.setAlwaysOnTop(true);
                 stage.setTitle("QAFormatter");
@@ -457,7 +443,6 @@ public class HelloApplication extends Application {
                 stage.setWidth(300);
                 stage.setScene(scene);
                 stage.show();
-                exitApp.setOnAction(event -> Platform.exit());
                 // Platform.exit();
             }
 
