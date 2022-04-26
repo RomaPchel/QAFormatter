@@ -236,7 +236,6 @@ public class HelloApplication extends Application {
                 }
                 else
                 {
-
                     dragText.setText(getFileName());
                     wordCountText.setText("Word count: " + obj.countWords() + " +- some words");
 
@@ -252,10 +251,10 @@ public class HelloApplication extends Application {
             if (returnPath() == null){
                 dragText.setText("Drag File");
             }else{
-                obj.deleteDoubleSpaces(obj.robot);
+               // obj.deleteDoubleSpaces(obj.robot);
                 obj.changeStyle(obj.robot);
-                obj.saveFile(obj.robot);
-                dragText.setText("Counted");
+                //obj.saveFile(obj.robot);
+                dragText.setText("Formatted");
             }
 
         }
@@ -364,6 +363,7 @@ public class HelloApplication extends Application {
             fxmlLoader.setController(this);
 
             guideText = new TextField("NONE");
+
             wordCountText = new Label();
             ReferenceCountText = new Label();
             COUNT = new Button();
