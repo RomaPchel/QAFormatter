@@ -14,7 +14,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <GridPane>
-        <Label fx:id="hoverText" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER;  " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="hoverText" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER; -fx-font-weight: bold " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="                                        " GridPane.columnIndex="1" GridPane.rowIndex="0"/>
         <Button fx:id="refreshCheckBoxes" text="⟲" style="-fx-font: 14 arial; -fx-base: #ffffff; -fx-row-valignment: CENTER  " GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#setRefreshCheckBoxes" />
         <Label text="   " GridPane.columnIndex="3" GridPane.rowIndex="0"/>
