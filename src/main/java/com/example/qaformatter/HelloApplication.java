@@ -312,37 +312,38 @@ public class HelloApplication extends Application {
         }
     }
     private boolean parsePages() throws IOException {
-
-        try {
-            URL url = new URL("https://romapchel.github.io/QAFormatter/");
+       // try {
+            //URL url = new URL("https://romapchel.github.io/QAFormatter/");
+            URL url = new URL("https://cabinet.editgroup.biz/orders/857569");
             URLConnection urlConnection = url.openConnection();
             InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
             BufferedReader buff = new BufferedReader(inStream);
 
             String line = buff.readLine();
             while (line != null) {
-                if (line.contains("<title>")) {
-
-                    line = line.substring(11, 15);
-                    System.out.println(line);
-                    if (line.equals("True")){
-                        execNumber = 0;
-                        return true;
-
-                    }else{
-                        execNumber= 1;
-                        return false;
-                    }
-
-                }
+//                if (line.contains("<title>")) {
+//
+//                    line = line.substring(11, 15);
+//                    System.out.println(line);
+//                    if (line.equals("True")){
+//                        execNumber = 0;
+//                        return true;
+//
+//                    }else{
+//                        execNumber= 1;
+//                        return false;
+//                    }
+//
+//                }
+                System.out.println(line);
                 line = buff.readLine();
             }
 
-        }catch (UnknownHostException e){
-           execNumber =3;
-           return false;
-        }
-
+//        }catch (UnknownHostException e){
+//           execNumber = 3;
+//           return false;
+//        }
+//
 
         return false;
     }
