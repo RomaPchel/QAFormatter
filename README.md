@@ -16,3 +16,25 @@ Press [click!](https://github.com/RomaPchel/QAFormatter/archive/refs/heads/main.
 
 Go to folder **"Out"**, scroll down and double click the file named **QAFormatter.jar**.
 Now you have everything to start. Good luck!
+
+## How to use
+
+### To add you file just simply drag and drop it.
+
+![2022-04-26 16-40-55 (online-video-cutter com) (1)](https://user-images.githubusercontent.com/74241615/165314518-4943b233-6ebd-4718-9562-743030df70c9.gif)
+
+### To start formatting press **"Format"** and then press on you **opened(!)** word file.
+
+![2022-04-26 16-51-39 (online-video-cutter com) (1)](https://user-images.githubusercontent.com/74241615/165316601-17a37ade-d561-4157-8b3e-8f0bc7f82af9.gif)
+
+### You can easily mark your progress.
+
+![2022-04-26 16-58-12 (online-video-cutter com)](https://user-images.githubusercontent.com/74241615/165317306-38fb7f6c-c164-46a3-a3e6-06cd572d2822.gif)
+
+###Pin\Unpin app so it will not close\hide when you work in Word.
+
+![2022-04-26 17-01-39 (online-video-cutter com) (1)](https://user-images.githubusercontent.com/74241615/165318142-d5ed1cae-fab2-4a6b-9075-d565f70afb85.gif)
+
+### Check hints to boost your performance.
+
+![2022-04-26 17-06-44 (online-video-cutter com)](https://user-images.githubusercontent.com/74241615/165319291-17813909-9e9e-4209-93e7-93a3b2b39f52.gif)
