@@ -31,7 +31,11 @@ Now you have everything to start. Good luck!
 
 ![2022-04-26 16-58-12 (online-video-cutter com)](https://user-images.githubusercontent.com/74241615/165317306-38fb7f6c-c164-46a3-a3e6-06cd572d2822.gif)
 
-###Pin\Unpin app so it will not close\hide when you work in Word.
+### To see additional Information Hover over the text.
+
+![image](https://user-images.githubusercontent.com/74241615/165324524-cc1a22af-c95a-435b-a3a5-cf37efa854b7.png)
+
+### Pin\Unpin app so it will not close\hide when you work in Word.
 
 ![2022-04-26 17-01-39 (online-video-cutter com) (1)](https://user-images.githubusercontent.com/74241615/165318142-d5ed1cae-fab2-4a6b-9075-d565f70afb85.gif)
 
