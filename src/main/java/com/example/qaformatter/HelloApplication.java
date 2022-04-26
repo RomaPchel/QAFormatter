@@ -253,7 +253,7 @@ public class HelloApplication extends Application {
                 dragText.setText("Drag File");
             }else{
                 obj.deleteDoubleSpaces(obj.robot);
-               // obj.changeStyle(obj.robot);
+                obj.changeStyle(obj.robot);
                 obj.saveFile(obj.robot);
                 dragText.setText("Counted");
             }
