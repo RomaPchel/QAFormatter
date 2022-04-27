@@ -2,14 +2,14 @@
 
 ## Installing JAVA
 
-You need to install Java. It will help you to run the program on your device. Go to [this site](https://www.oracle.com/java/technologies/downloads/#jdk18-windows) and chose preferred platform. I recommend you to download **.exe** installer as it will do everything automatically. The installation path should look similar to this **(JDK version 18+)**. 
+You need to install Java. It will help you to run the program on your device. Go to [this site](https://www.oracle.com/java/technologies/downloads/#jdk18-windows) and chose yout preferred platform. I recommend you to download **.exe** installer as it will do everything automatically. The installation path should look similar to this **(JDK version 18+)**. 
 
 ![image](https://user-images.githubusercontent.com/74241615/165307875-c0d78256-02aa-4846-b621-6c48996266c6.png).
 
 
 ## Installing App
 
-Press [click!](https://github.com/RomaPchel/QAFormatter/archive/refs/heads/main.zip) and download ZIP. Then Unzip archive in you preferred location. It should look something like this.
+Press [click!](https://github.com/RomaPchel/QAFormatter/archive/refs/heads/main.zip) and download ZIP. Then Unzip the archive in your preferred location. It should look something like this.
 
 
 ![image](https://user-images.githubusercontent.com/74241615/165307313-cfb7e871-c725-4651-8bb4-74f0b12e25f0.png)
@@ -19,11 +19,11 @@ Now you have everything to start. Good luck!
 
 ## How to use
 
-### To add you file just simply drag and drop it.
+### To add your file just simply drag and drop it.
 
 ![2022-04-27 11-28-41 (online-video-cutter com)](https://user-images.githubusercontent.com/74241615/165476912-3dc36b24-8873-4308-aae5-403b144ad6df.gif)
 
-### To start formatting press **"Format"** and then press on you **opened(!)** word file.
+### To start formatting press **"Format"** and then press on your **opened(!)** word file.
 
 ![2022-04-27 11-34-21 (online-video-cutter com)](https://user-images.githubusercontent.com/74241615/165477741-a17dca15-a600-47f4-abb8-ce6aa174643b.gif)
 
