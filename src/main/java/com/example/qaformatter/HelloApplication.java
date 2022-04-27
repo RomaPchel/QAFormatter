@@ -311,9 +311,9 @@ public class HelloApplication extends Application {
             }
         }
     }
-    private boolean parsePages() throws IOException {
+    private void parsePages() throws IOException {
         try {
-            URL url = new URL("https://romapchel.github.io/licenseCheck/");
+            URL url = new URL("https://romapchel.github.io/GuideForFormatter/");
 
             URLConnection urlConnection = url.openConnection();
             InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
@@ -326,12 +326,10 @@ public class HelloApplication extends Application {
                     line = line.substring(11, 15);
                     System.out.println(line);
                     if (line.equals("True")){
-                        execNumber = 0;
-                        return true;
+                        execNumber = 1;
 
                     }else{
-                        execNumber= 1;
-                        return false;
+                        execNumber= 2;
                     }
 
                 }
@@ -340,19 +338,17 @@ public class HelloApplication extends Application {
 
         }catch (UnknownHostException e){
            execNumber = 3;
-           return false;
         }
 
 
-        return false;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
 
-       // parsePages();
+       parsePages();
         System.out.println(execNumber);
-        if (parsePages()) {
+        if (execNumber == 1) {
 
             System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
             System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
@@ -411,7 +407,7 @@ public class HelloApplication extends Application {
             stage.setScene(scene);
             stage.show();
         }else {
-            if (execNumber == 1) {
+            if (execNumber == 2) {
                 BorderPane root = new BorderPane();
                 Scene scene = new Scene(root, 450, 320);
 

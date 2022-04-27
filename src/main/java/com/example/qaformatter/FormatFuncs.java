@@ -4,10 +4,6 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Scanner;
 import com.aspose.words.*;
 
 
@@ -91,7 +87,7 @@ public class FormatFuncs {
 
     }
     void setFontStyle(Robot robot) throws InterruptedException {
-        String[] fonts = {"Times New Roman", "Colibri", "Arial"};
+        String[] fonts = {"Times New Roman"};
         //Save code to the clipboard
         StringSelection stringSelection = new StringSelection(fonts[0]);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -112,10 +108,11 @@ public class FormatFuncs {
         robot.keyRelease(KeyEvent.VK_SHIFT);
         robot.keyRelease(KeyEvent.VK_F);
         //Enter preferred font
-        for (int j : timesNewRoman) {
-            robot.keyPress(j);
-            robot.delay(100);
-        }
+        //Paste pre-written code
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
         Thread.sleep(200);
         //Enter and CLose
         robot.keyPress(KeyEvent.VK_PAGE_DOWN);
