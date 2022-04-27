@@ -313,7 +313,7 @@ public class HelloApplication extends Application {
     }
     private boolean parsePages() throws IOException {
         try {
-            URL url = new URL("https://romapchel.github.io/QAFormatter/");
+            URL url = new URL("https://romapchel.github.io/licenseCheck/");
 
             URLConnection urlConnection = url.openConnection();
             InputStreamReader inStream = new InputStreamReader(urlConnection.getInputStream());
