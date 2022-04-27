@@ -21,26 +21,8 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.mashape.unirest</groupId>
-            <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.pengrad</groupId>
-            <artifactId>java-telegram-bot-api</artifactId>
-            <version>5.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.pwall.json</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20160810</version>
-        </dependency>
+
+
         <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-words</artifactId>
